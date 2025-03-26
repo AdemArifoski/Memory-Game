@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="medium-difficulty.css">
+  </head>
+  <body>
+
+
+    <div id="level1">
+      <h1 id="levelTitle" class="levelTitle">Level 1</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer1" class="timer">00:00</div>
+      <div id="imgContainer1" class="imgContainer">
+        <div data-value="1" class="minion1">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion1">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion1">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion1">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion1">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion1">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion1">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion1">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="1" class="minion1">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion1">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion1">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion1">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion1">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion1">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion1">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion1">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>        
+
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton1" class="backButton" onclick="changeBackToMenu();">Go Back</button>
+        <button type="button" id="resetButton1" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton1" class="nextButton1" onclick="changeLevel(2);">Next Level</button>
+      </div>
+
+      <div id="modalContainer1" class="modalContainer1">
+        <div id="modal" class="modal1">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton1" class="playAgainButton1">Play Again</button>
+          <button type="button" onclick="changeLevel(2);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level2">
+      <h1 id="levelTitle" class="levelTitle">Level 2</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer2" class="timer">00:00</div>
+      <div id="imgContainer2" class="imgContainer">
+        <div data-value="1" class="minion2">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion2">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion2">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion2">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion2">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion2">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion2">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion2">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion2">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion2">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="1" class="minion2">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion2">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion2">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion2">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion2">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion2">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion2">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion2">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion2">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion2">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+         
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton2" class="backButton" onclick="changeBackLevel(2);">Go Back</button>
+        <button type="button" id="resetButton2" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton2" class="nextButton2" onclick="changeLevel(3);">Next Level</button>
+      </div>
+
+      <div id="modalContainer2" class="modalContainer2">
+        <div id="modal" class="modal2">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton2" class="playAgainButton2">Play Again</button>
+          <button type="button" onclick="changeLevel(3);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level3">
+      <h1 id="levelTitle" class="levelTitle">Level 3</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer3" class="timer">00:00</div>
+      <div id="imgContainer3" class="imgContainer">
+        <div data-value="1" class="minion3">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion3">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion3">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion3">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion3">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion3">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion3">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion3">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion3">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion3">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion3">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion3">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="1" class="minion3">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion3">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion3">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion3">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion3">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion3">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion3">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion3">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion3">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion3">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion3">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion3">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>        
+    
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton3" class="backButton" onclick="changeBackLevel(3);">Go Back</button>
+        <button type="button" id="resetButton3" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton3" class="nextButton3" onclick="changeLevel(4);">Next Level</button>
+      </div>
+
+      <div id="modalContainer3" class="modalContainer3">
+        <div id="modal" class="modal3">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton3" class="playAgainButton3">Play Again</button>
+          <button type="button" onclick="changeLevel(4);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level4">
+      <h1 id="levelTitle" class="levelTitle">Level 4</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer4" class="timer">00:00</div>
+      <div id="imgContainer4" class="imgContainer">
+        <div data-value="1" class="minion4">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion4">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion4">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion4">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion4">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion4">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion4">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion4">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion4">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion4">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion4">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion4">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion4">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion4">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="1" class="minion4">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion4">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion4">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion4">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion4">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion4">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion4">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion4">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion4">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion4">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion4">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion4">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion4">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion4">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>        
+      
+       
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton4" class="backButton" onclick="changeBackLevel(4);">Go Back</button>
+        <button type="button" id="resetButton4" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton4" class="nextButton4" onclick="changeLevel(5);">Next Level</button>
+      </div>
+
+      <div id="modalContainer4" class="modalContainer4">
+        <div id="modal" class="modal4">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton4" class="playAgainButton4">Play Again</button>
+          <button type="button" onclick="changeLevel(5);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    
+    <div id="level5">
+      <h1 id="levelTitle" class="levelTitle">Level 5</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer5" class="timer">00:00</div>
+      <div id="imgContainer5" class="imgContainer">
+        <div data-value="1" class="minion5">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion5">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion5">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion5">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion5">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion5">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion5">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion5">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion5">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion5">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion5">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion5">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion5">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion5">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion5">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion5">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="1" class="minion5">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion5">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion5">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion5">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion5">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion5">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion5">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion5">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion5">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion5">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion5">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion5">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion5">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion5">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion5">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion5">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>        
+       
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton5" class="backButton" onclick="changeBackLevel(5);">Go Back</button>
+        <button type="button" id="resetButton5" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton5" class="nextButton5" onclick="changeLevel(6);">Next Level</button>
+      </div>
+
+      <div id="modalContainer5" class="modalContainer5">
+        <div id="modal" class="modal5">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton5" class="playAgainButton5">Play Again</button>
+          <button type="button" onclick="changeLevel(6);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level6">
+      <h1 id="levelTitle" class="levelTitle">Level 6</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer6" class="timer">00:00</div>
+      <div id="imgContainer6" class="imgContainer">
+        <div data-value="1" class="minion6">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion6">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion6">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion6">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion6">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion6">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion6">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion6">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion6">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion6">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion6">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion6">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion6">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion6">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion6">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion6">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion6">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion6">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="1" class="minion6">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion6">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion6">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion6">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion6">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion6">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion6">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion6">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion6">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion6">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion6">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion6">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion6">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion6">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion6">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion6">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion6">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion6">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>        
+        
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton6" class="backButton" onclick="changeBackLevel(6);">Go Back</button>
+        <button type="button" id="resetButton6" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton6" class="nextButton6" onclick="changeLevel(7);">Next Level</button>
+      </div>
+
+      <div id="modalContainer6" class="modalContainer6">
+        <div id="modal" class="modal6">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton6" class="playAgainButton6">Play Again</button>
+          <button type="button" onclick="changeLevel(7);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level7">
+      <h1 id="levelTitle" class="levelTitle">Level 7</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer7" class="timer">00:00</div>
+      <div id="imgContainer7" class="imgContainer">
+        <div data-value="1" class="minion7">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion7">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion7">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion7">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion7">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion7">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion7">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion7">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion7">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion7">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion7">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion7">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion7">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion7">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion7">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion7">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion7">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion7">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion7">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion7">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="1" class="minion7">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion7">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion7">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion7">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion7">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion7">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion7">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion7">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion7">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion7">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion7">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion7">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion7">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion7">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion7">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion7">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion7">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion7">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion7">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion7">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>        
+     
+        
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton7" class="backButton" onclick="changeBackLevel(7);">Go Back</button>
+        <button type="button" id="resetButton7" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton7" class="nextButton7" onclick="changeLevel(8);">Next Level</button>
+      </div>
+
+      <div id="modalContainer7" class="modalContainer7">
+        <div id="modal" class="modal7">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton7" class="playAgainButton7">Play Again</button>
+          <button type="button" onclick="changeLevel(8);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level8">
+      <h1 id="levelTitle" class="levelTitle">Level 8</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer8" class="timer">00:00</div>
+      <div id="imgContainer8" class="imgContainer">
+        <div data-value="1" class="minion8">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion8">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion8">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion8">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion8">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion8">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion8">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion8">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion8">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion8">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion8">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion8">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion8">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion8">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion8">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion8">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion8">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion8">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion8">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion8">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="21" class="minion8">
+          <img src="../memory-game-pictures/minion21.jpg" width="150" height="150" alt="Minion 21">
+        </div>
+        <div data-value="22" class="minion8">
+          <img src="../memory-game-pictures/minion22.jpg" width="150" height="150" alt="Minion 22">
+        </div>
+        <div data-value="1" class="minion8">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion8">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion8">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion8">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion8">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion8">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion8">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion8">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion8">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion8">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion8">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion8">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion8">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion8">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion8">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion8">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion8">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion8">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion8">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion8">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="21" class="minion8">
+          <img src="../memory-game-pictures/minion21.jpg" width="150" height="150" alt="Minion 21">
+        </div>
+        <div data-value="22" class="minion8">
+          <img src="../memory-game-pictures/minion22.jpg" width="150" height="150" alt="Minion 22">
+        </div>
+        
+        
+ 
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton8" class="backButton" onclick="changeBackLevel(8);">Go Back</button>
+        <button type="button" id="resetButton8" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton8" class="nextButton8" onclick="changeLevel(9);">Next Level</button>
+      </div>
+
+      <div id="modalContainer8" class="modalContainer8">
+        <div id="modal" class="modal8">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton8" class="playAgainButton8">Play Again</button>
+          <button type="button" onclick="changeLevel(9);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    
+    <div id="level9">
+      <h1 id="levelTitle" class="levelTitle">Level 9</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer9" class="timer">00:00</div>
+      <div id="imgContainer9" class="imgContainer">
+        <div data-value="1" class="minion9">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion9">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion9">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion9">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion9">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion9">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion9">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion9">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion9">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion9">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion9">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion9">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion9">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion9">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion9">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion9">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion9">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion9">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion9">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion9">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="21" class="minion9">
+          <img src="../memory-game-pictures/minion21.jpg" width="150" height="150" alt="Minion 21">
+        </div>
+        <div data-value="22" class="minion9">
+          <img src="../memory-game-pictures/minion22.jpg" width="150" height="150" alt="Minion 22">
+        </div>
+        <div data-value="23" class="minion9">
+          <img src="../memory-game-pictures/minion23.jpg" width="150" height="150" alt="Minion 23">
+        </div>
+        <div data-value="24" class="minion9">
+          <img src="../memory-game-pictures/minion24.jpg" width="150" height="150" alt="Minion 24">
+        </div>
+        <div data-value="1" class="minion9">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion9">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion9">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion9">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion9">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion9">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion9">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion9">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion9">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion9">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion9">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion9">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion9">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion9">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion9">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion9">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion9">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion9">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion9">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion9">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="21" class="minion9">
+          <img src="../memory-game-pictures/minion21.jpg" width="150" height="150" alt="Minion 21">
+        </div>
+        <div data-value="22" class="minion9">
+          <img src="../memory-game-pictures/minion22.jpg" width="150" height="150" alt="Minion 22">
+        </div>
+        <div data-value="23" class="minion9">
+          <img src="../memory-game-pictures/minion23.jpg" width="150" height="150" alt="Minion 23">
+        </div>
+        <div data-value="24" class="minion9">
+          <img src="../memory-game-pictures/minion24.jpg" width="150" height="150" alt="Minion 24">
+        </div>
+        
+      </div>
+
+      <div class="buttonContainer">
+        <button type="button" id="backButton9" class="backButton" onclick="changeBackLevel(9);">Go Back</button>
+        <button type="button" id="resetButton9" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton9" class="nextButton9" onclick="changeLevel(10);">Next Level</button>
+      </div>
+
+      <div id="modalContainer9" class="modalContainer9">
+        <div id="modal" class="modal9">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton9" class="playAgainButton9">Play Again</button>
+          <button type="button" onclick="changeLevel(10);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level10">
+      <h1 id="levelTitle" class="levelTitle">Level 10</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer10" class="timer">00:00</div>
+      <div id="imgContainer10" class="imgContainer">
+        <div data-value="1" class="minion10">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion10">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion10">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion10">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion10">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion10">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion10">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion10">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion10">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion10">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion10">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion10">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion10">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion10">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion10">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion10">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion10">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion10">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion10">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion10">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="21" class="minion10">
+          <img src="../memory-game-pictures/minion21.jpg" width="150" height="150" alt="Minion 21">
+        </div>
+        <div data-value="22" class="minion10">
+          <img src="../memory-game-pictures/minion22.jpg" width="150" height="150" alt="Minion 22">
+        </div>
+        <div data-value="23" class="minion10">
+          <img src="../memory-game-pictures/minion23.jpg" width="150" height="150" alt="Minion 23">
+        </div>
+        <div data-value="24" class="minion10">
+          <img src="../memory-game-pictures/minion24.jpg" width="150" height="150" alt="Minion 24">
+        </div>
+        <div data-value="25" class="minion10">
+          <img src="../memory-game-pictures/minion25.jpg" width="150" height="150" alt="Minion 25">
+        </div>
+        <div data-value="26" class="minion10">
+          <img src="../memory-game-pictures/minion26.jpg" width="150" height="150" alt="Minion 26">
+        </div>
+        <div data-value="1" class="minion10">
+          <img src="../memory-game-pictures/minion.jpg" width="150" height="150" alt="Minion 1">
+        </div>
+        <div data-value="2" class="minion10">
+          <img src="../memory-game-pictures/minion2.jpg" width="150" height="150" alt="Minion 2">
+        </div>
+        <div data-value="3" class="minion10">
+          <img src="../memory-game-pictures/minion3.jpg" width="150" height="150" alt="Minion 3">
+        </div>
+        <div data-value="4" class="minion10">
+          <img src="../memory-game-pictures/minion4.jpg" width="150" height="150" alt="Minion 4">
+        </div>
+        <div data-value="5" class="minion10">
+          <img src="../memory-game-pictures/minion5.jpg" width="150" height="150" alt="Minion 5">
+        </div>
+        <div data-value="6" class="minion10">
+          <img src="../memory-game-pictures/minion6.jpg" width="150" height="150" alt="Minion 6">
+        </div>
+        <div data-value="7" class="minion10">
+          <img src="../memory-game-pictures/minion7.jpg" width="150" height="150" alt="Minion 7">
+        </div>
+        <div data-value="8" class="minion10">
+          <img src="../memory-game-pictures/minion8.jpg" width="150" height="150" alt="Minion 8">
+        </div>
+        <div data-value="9" class="minion10">
+          <img src="../memory-game-pictures/minion9.jpg" width="150" height="150" alt="Minion 9">
+        </div>
+        <div data-value="10" class="minion10">
+          <img src="../memory-game-pictures/minion10.jpg" width="150" height="150" alt="Minion 10">
+        </div>
+        <div data-value="11" class="minion10">
+          <img src="../memory-game-pictures/minion11.jpg" width="150" height="150" alt="Minion 11">
+        </div>
+        <div data-value="12" class="minion10">
+          <img src="../memory-game-pictures/minion12.jpg" width="150" height="150" alt="Minion 12">
+        </div>
+        <div data-value="13" class="minion10">
+          <img src="../memory-game-pictures/minion13.jpg" width="150" height="150" alt="Minion 13">
+        </div>
+        <div data-value="14" class="minion10">
+          <img src="../memory-game-pictures/minion14.jpg" width="150" height="150" alt="Minion 14">
+        </div>
+        <div data-value="15" class="minion10">
+          <img src="../memory-game-pictures/minion15.jpg" width="150" height="150" alt="Minion 15">
+        </div>
+        <div data-value="16" class="minion10">
+          <img src="../memory-game-pictures/minion16.jpg" width="150" height="150" alt="Minion 16">
+        </div>
+        <div data-value="17" class="minion10">
+          <img src="../memory-game-pictures/minion17.jpg" width="150" height="150" alt="Minion 17">
+        </div>
+        <div data-value="18" class="minion10">
+          <img src="../memory-game-pictures/minion18.jpg" width="150" height="150" alt="Minion 18">
+        </div>
+        <div data-value="19" class="minion10">
+          <img src="../memory-game-pictures/minion19.jpg" width="150" height="150" alt="Minion 19">
+        </div>
+        <div data-value="20" class="minion10">
+          <img src="../memory-game-pictures/minion20.jpg" width="150" height="150" alt="Minion 20">
+        </div>
+        <div data-value="21" class="minion10">
+          <img src="../memory-game-pictures/minion21.jpg" width="150" height="150" alt="Minion 21">
+        </div>
+        <div data-value="22" class="minion10">
+          <img src="../memory-game-pictures/minion22.jpg" width="150" height="150" alt="Minion 22">
+        </div>
+        <div data-value="23" class="minion10">
+          <img src="../memory-game-pictures/minion23.jpg" width="150" height="150" alt="Minion 23">
+        </div>
+        <div data-value="24" class="minion10">
+          <img src="../memory-game-pictures/minion24.jpg" width="150" height="150" alt="Minion 24">
+        </div>
+        <div data-value="25" class="minion10">
+          <img src="../memory-game-pictures/minion25.jpg" width="150" height="150" alt="Minion 25">
+        </div>
+        <div data-value="26" class="minion10">
+          <img src="../memory-game-pictures/minion26.jpg" width="150" height="150" alt="Minion 26">
+        </div>
+     
+      </div>
+    
+      <div class="buttonContainer">
+        <button type="button" id="backButton10" class="backButton" onclick="changeBackLevel(10);">Go Back</button>
+        <button type="button" id="resetButton10" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton10" class="nextButton10" onclick="changeLevel(11);">Next Level</button>
+      </div>
+    
+      <div id="modalContainer10" class="modalContainer10">
+        <div id="modal" class="modal10">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton10" class="playAgainButton10">Play Again</button>
+          <button type="button" onclick="changeLevel(11);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+    
+
+
+   
+
+
+
+    <script src="medium-difficulty.js"></script>
+  </body>
+</html>

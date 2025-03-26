@@ -1,0 +1,122 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  margin: 0;
+}
+
+
+h1 {
+  font-size: 40px;
+  margin-top: 250px;
+  margin-bottom: 100px;
+  color: white;
+}
+
+p {
+  font-size: 25px;
+  margin-left: 90px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+#hardButton, #mediumButton, #easyButton {
+  display: block;
+  width: 100px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 120px;
+  background-color: rgb(253, 95, 253);
+  cursor: pointer;
+  font-size: 15px;
+  border-color: white;
+  color: white;
+}
+
+#optionsForEasyDifficulty,
+#optionsForMediumDifficulty,
+#optionsForHardDifficulty {
+  opacity: 0;
+  pointer-events: none;
+  color: white;
+}
+
+.optionsForEasyDifficulty {
+  margin-top: 200px;
+  margin-bottom: -370px;
+}
+
+.optionsForMediumDifficulty {
+ margin-top: 200px;
+ margin-bottom: -370px;
+  
+}
+
+.optionsForHardDifficulty{
+  margin-top: 200px;
+}
+
+#optionsForEasyDifficulty.show,
+#optionsForMediumDifficulty.show,
+#optionsForHardDifficulty.show {
+  margin-top: 0;
+  opacity: 1;
+  transition-timing-function: ease-in;
+  transition-duration: 1s;
+  pointer-events: auto;
+  color: white;
+}
+
+.selectButtons {
+  cursor: pointer;
+  max-width: 500px; 
+  max-height: 500px; 
+  overflow-y: scroll; 
+  border: 2px solid white; 
+  padding: 10px;
+}
+
+.numbers {
+  display: inline-block;
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.numbers2 {
+  font-size: 20px;
+}
+
+.menu {
+  z-index: 1;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33.33%;
+  z-index: 0; 
+}
+
+.numbers-video{
+  position: absolute;
+  top: 0;
+  left: 33.33%;
+  width: 33.33%; 
+  z-index: 0; 
+}
+
+.anime-video {
+  position: absolute;
+  top: 0;
+  left: 66.66%; 
+  width: 33.33%; 
+  z-index: 0; 
+}
+

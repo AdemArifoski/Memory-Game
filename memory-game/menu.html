@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Memory Game</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <div class="menu">
+    <h1>Card Memory Game</h1>
+    <p>Select Difficulty</p>
+    <button type="button" id="hardButton">Hard</button>
+    <button type="button" id="mediumButton">Medium</button>
+    <button type="button" id="easyButton">Easy</button>
+
+    <div id="optionsForEasyDifficulty" class="optionsForEasyDifficulty">
+      <div class="selectButtons">
+        <h2>Select Topic</h2>
+        <div class="numbers" onclick="changeToEasyDifficulty();">123
+          <div class="numbers2">Numbers</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="optionsForMediumDifficulty" class="optionsForMediumDifficulty">
+      <div class="selectButtons">
+        <h2>Select Topic</h2>
+        <div class="numbers" onclick="changeToMediumDifficulty();">Minions
+        </div>
+      </div>
+    </div>
+
+    <div id="optionsForHardDifficulty" class="optionsForHardDifficulty">
+      <div class="selectButtons">
+        <h2>Select Topic</h2>
+        <div class="numbers" onclick="changeToHardDifficulty();">Naruto
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    <video autoplay muted loop class="background-video">
+      <source src="../memory-game-pictures/minions-menu.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop class="numbers-video">
+      <source src="../memory-game-pictures/numbers-menu.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop class="anime-video">
+      <source src="../memory-game-pictures/anime-menu.mp4" type="video/mp4">
+    </video>
+  </div>
+
+
+
+
+  <script src="menu.js"></script>
+</body>
+</html>
+
+

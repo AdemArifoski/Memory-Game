@@ -1,0 +1,146 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#levelTitle { 
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  text-decoration: underline;
+}
+
+
+
+#time {
+  font-size: 20px;
+  text-align: center;
+} 
+
+
+.timer {
+  margin-bottom: 50px;
+  font-size: 20px;
+  margin-left: 4px;
+  text-align: center;
+}
+
+.buttonContainer {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 50px; 
+}
+
+#backButton1, #backButton2, #backButton3, #backButton4, #backButton5 {
+  margin-left: 0; 
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.resetButton {
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#nextButton1, #nextButton2, #nextButton3, #nextButton4, #nextButton5 {
+  margin-right: 0; 
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.numberContainer {
+  display: grid;
+  grid-gap: 20px; 
+  justify-content: center;
+}
+
+#numberContainer1 { grid-template-columns: repeat(5,100px);}
+#numberContainer2 { grid-template-columns: repeat(6,100px);}
+#numberContainer3 { grid-template-columns: repeat(8,100px);}
+#numberContainer4 { grid-template-columns: repeat(10,100px);}
+#numberContainer5 { grid-template-columns: repeat(10,100px);}
+
+
+.number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9, .number10 {
+  position: relative;
+  transition: 0.25s;
+  cursor: pointer;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  background-color: lightgreen;
+}
+
+.number1.boxOpen, .number2.boxOpen, .number3.boxOpen, .number4.boxOpen, .number5.boxOpen, .number6.boxOpen,
+.number7.boxOpen, .number8.boxOpen, .number9.boxOpen, .number10.boxOpen {
+  transform: rotateY(0deg);
+}
+
+.number1::after, .number2::after, .number3::after, .number4::after, .number5::after, .number6::after,
+.number7::after, .number8::after, .number9::after, .number10::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color:lightblue;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.boxOpen::after  {
+  transform: rotateY(180deg);
+}
+
+#modalContainer1, #modalContainer2, #modalContainer3, #modalContainer4, #modalContainer5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modalContainer1.show, #modalContainer2.show, #modalContainer3.show, #modalContainer4.show, #modalContainer5.show {
+  pointer-events: auto;
+  opacity: 1;
+  border: 2px solid #000; 
+  border-radius: 8px;
+  width: 500px;
+}
+
+.modalContainer1.show { margin-left: 40px;  margin-top: -400px;}
+.modalContainer2.show { margin-left: 100px; margin-top: -500px;}
+.modalContainer3.show { margin-left: 230px; margin-top: -500px;}
+.modalContainer4.show { margin-left: 350px; margin-top: -500px;}
+.modalContainer5.show { margin-left: 340px; margin-top: -600px;}
+
+
+#modal {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+
+#modal h1{
+  margin: 0;
+  padding: 0;
+}
+
+#playAgainButton1, #playAgainButton2, #playAgainButton3, #playAgainButton4, #playAgainButton5 {
+  margin-top: 50px;
+  margin-right: 100px;
+}
+

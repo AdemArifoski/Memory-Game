@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="easy-difficulty.css">
+  </head>
+  <body>
+    <div>
+      <h1>Card Memory Game</h1>
+      <p>Level 1</p>
+      <div class="time">Time</div>
+      <div id="timer">00:00</div>
+      <div id="imgContainer">
+        <div data-value="0" class="number">0</div>
+        <div data-value="1" class="number">1</div>
+        <div data-value="2" class="number">2</div> 
+        <div data-value="3" class="number">3</div>
+        <div data-value="4" class="number">4</div>
+        <div data-value="5" class="number">5</div>
+        <div data-value="6" class="number">6</div> 
+        <div data-value="7" class="number">7</div>
+        <div data-value="8" class="number">8</div>
+        <div data-value="9" class="number">9</div>
+        <div data-value="0" class="number">0</div>
+        <div data-value="1" class="number">1</div>
+        <div data-value="2" class="number">2</div> 
+        <div data-value="3" class="number">3</div>
+        <div data-value="4" class="number">4</div>
+        <div data-value="5" class="number">5</div>
+        <div data-value="6" class="number">6</div> 
+        <div data-value="7" class="number">7</div>
+        <div data-value="8" class="number">8</div>
+        <div data-value="9" class="number">9</div>
+      </div>
+      <button id="backButton" onclick="changeBackToMenu();">Go Back</button>
+      <button id="resetButton">Reset Game</button>
+      <button id="nextButton" onclick="changeToEasyDifficulty2();">Next Level</button>
+    </div>
+
+    <script src="easy-difficulty.js"></script>
+  </body>
+</html>

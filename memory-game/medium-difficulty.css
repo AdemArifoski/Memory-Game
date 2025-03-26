@@ -1,0 +1,156 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#levelTitle { 
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  text-decoration: underline;
+}
+
+
+
+#time {
+  font-size: 20px;
+  text-align: center;
+} 
+
+
+.timer {
+  margin-bottom: 50px;
+  font-size: 20px;
+  margin-left: 4px;
+  text-align: center;
+}
+
+.buttonContainer {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 50px; 
+}
+
+#backButton1, #backButton2, #backButton3, #backButton4, #backButton5, #backButton6, #backButton7, #backButton8, #backButton9, #backButton10 {
+  margin-left: 0; 
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.resetButton {
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#nextButton1, #nextButton2, #nextButton3, #nextButton4, #nextButton5, #nextButton6, #nextButton7,#nextButton8, #nextButton9, #nextButton10 {
+  margin-right: 0; 
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.imgContainer {
+  display: grid;
+  grid-gap: 20px; 
+  justify-content: center;
+}
+
+#imgContainer1 { grid-template-columns: repeat(4,150px);}
+#imgContainer2 { grid-template-columns: repeat(5,150px);}
+#imgContainer3 { grid-template-columns: repeat(6,150px);}
+#imgContainer4 { grid-template-columns: repeat(7,150px);}
+#imgContainer5 { grid-template-columns: repeat(8,150px);}
+#imgContainer6 { grid-template-columns: repeat(9,150px);}
+#imgContainer7 { grid-template-columns: repeat(10,150px);}
+#imgContainer8 { grid-template-columns: repeat(11,150px);}
+#imgContainer9 { grid-template-columns: repeat(8,150px);}
+#imgContainer10 { grid-template-columns: repeat(13,150px);}
+
+
+
+.minion1, .minion2, .minion3, .minion4, .minion5, .minion6, .minion7, .minion8, .minion9, .minion10 {
+  position: relative;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.minion1.boxOpen, .minion2.boxOpen, .minion3.boxOpen, .minion4.boxOpen, .minion5.boxOpen, .minion6.boxOpen, .minion7.boxOpen, .minion8.boxOpen, 
+.minion9.boxOpen, .minion10.boxOpen {
+  transform: rotateY(0deg);
+}
+
+.minion1::after, .minion2::after, .minion3::after, .minion4::after, .minion5::after, .minion6::after, .minion7::after, .minion8::after, 
+.minion9::after, .minion10::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color:lightblue;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+
+.boxOpen::after {
+  transform: rotateY(180deg);
+}
+
+#modalContainer1, #modalContainer2, #modalContainer3, #modalContainer4, #modalContainer5, #modalContainer6, #modalContainer7, #modalContainer8,
+#modalContainer9, #modalContainer10 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modalContainer1.show, #modalContainer2.show, #modalContainer3.show, #modalContainer4.show, #modalContainer5.show, #modalContainer6.show,
+#modalContainer7.show, #modalContainer8.show, #modalContainer9.show,#modalContainer10.show {
+  pointer-events: auto;
+  opacity: 1;
+  border: 2px solid #000; 
+  border-radius: 8px;
+  width: 500px;
+}
+
+.modalContainer1.show { margin-left: 80px;  margin-top: -600px;}
+.modalContainer2.show { margin-left: 160px;  margin-top: -600px;}
+.modalContainer3.show { margin-left: 250px;  margin-top: -600px;}
+.modalContainer4.show { margin-left: 330px;  margin-top: -600px;}
+.modalContainer5.show { margin-left: 420px;  margin-top: -600px;}
+.modalContainer6.show { margin-left: 500px;  margin-top: -600px;}
+.modalContainer7.show { margin-left: 580px;  margin-top: -600px;}
+.modalContainer8.show { margin-left: 680px;  margin-top: -600px;}
+.modalContainer9.show { margin-left: 420px;  margin-top: -850px;}
+.modalContainer10.show { margin-left: 850px;  margin-top: -600px;}
+
+
+
+
+#modal {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+
+#modal h1{
+  margin: 0;
+  padding: 0;
+}
+
+#playAgainButton1, #playAgainButton2, #playAgainButton3, #playAgainButton4, #playAgainButton5, #playAgainButton6,#playAgainButton7, 
+#playAgainButton8, #playAgainButton9, #playAgainButton10 {
+  margin-top: 50px;
+  margin-right: 100px;
+}

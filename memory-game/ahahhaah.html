@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Swap with Transition</title>
+    <style>
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: relative;
+        }
+        .itachi {
+            cursor: pointer;
+            position: relative;
+            transition: transform 1s ease; /* Transition for images */
+        }
+        .itachi img {
+            display: block;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div data-value="1" class="itachi"><img src="../memory-game-pictures/itachi.jpg" alt="Itachi 1"></div>
+        <div data-value="2" class="itachi"><img src="../memory-game-pictures/itachi2.jpg" alt="Itachi 2"></div>
+        <div data-value="3" class="itachi"><img src="../memory-game-pictures/itachi3.jpg" alt="Itachi 3"></div>
+        <div data-value="4" class="itachi"><img src="../memory-game-pictures/itachi4.jpg" alt="Itachi 4"></div>
+        <div data-value="5" class="itachi"><img src="../memory-game-pictures/itachi5.jpg" alt="Itachi 5"></div>
+        <div data-value="6" class="itachi"><img src="../memory-game-pictures/itachi6.jpg" alt="Itachi 6"></div>
+        <div data-value="7" class="itachi"><img src="../memory-game-pictures/itachi7.jpg" alt="Itachi 7"></div>
+        <div data-value="8" class="itachi"><img src="../memory-game-pictures/itachi8.jpg" alt="Itachi 8"></div>
+    </div>
+
+    <script>
+        function swapImages() {
+            const itachiElements = document.querySelectorAll('.itachi');
+            const randomIndex1 = Math.floor(Math.random() * itachiElements.length);
+            let randomIndex2;
+
+            // Ensure the second index is different from the first
+            do {
+                randomIndex2 = Math.floor(Math.random() * itachiElements.length);
+            } while (randomIndex1 === randomIndex2);
+
+            const img1 = itachiElements[randomIndex1];
+            const img2 = itachiElements[randomIndex2];
+
+            // Get the coordinates of both images
+            const img1Rect = img1.getBoundingClientRect();
+            const img2Rect = img2.getBoundingClientRect();
+
+            // Log the coordinates to the console
+            console.log(`Image 1 (${randomIndex1 + 1}) Coordinates:`, img1Rect);
+            console.log(`Image 2 (${randomIndex2 + 1}) Coordinates:`, img2Rect);
+
+            // Calculate the translation values
+            const translateX = img2Rect.left - img1Rect.left;
+            const translateY = img2Rect.top - img1Rect.top;
+
+            // Apply translation to both images
+            img1.style.transform = `translate(${translateX}px, ${translateY}px)`;
+            img2.style.transform = `translate(${-translateX}px, ${-translateY}px)`;
+
+            // Swap the images in the DOM after the transition duration
+            setTimeout(() => {
+                // Swap the elements in the DOM
+                const parent = img1.parentNode;
+                const nextSibling1 = img1.nextElementSibling;
+                const nextSibling2 = img2.nextElementSibling;
+
+                parent.insertBefore(img2, nextSibling1);
+                parent.insertBefore(img1, nextSibling2);
+
+                // Reset the transform so they stay in place
+                img1.style.transform = '';
+                img2.style.transform = '';
+            }, 1000); // Match this duration to the transition time
+        }
+
+        setInterval(swapImages, 5000); // Swap every 5 seconds
+    </script>
+</body>
+</html>
+
+
+
+
+
+

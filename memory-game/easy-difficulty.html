@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="easy-difficulty.css">
+  </head>
+  <body>
+   
+    
+    <div id="level1">
+      <h1 id="levelTitle" class="levelTitle">Level 1</h1>
+      <div id="time" class="time">Time:</div>
+      <div id="timer1" class="timer">00:00</div>
+      <div id="numberContainer1" class="numberContainer">
+        <div data-value="0" class="number1">0</div>
+        <div data-value="1" class="number1">1</div>
+        <div data-value="2" class="number1">2</div> 
+        <div data-value="3" class="number1">3</div>
+        <div data-value="4" class="number1">4</div>
+        <div data-value="5" class="number1">5</div>
+        <div data-value="6" class="number1">6</div> 
+        <div data-value="7" class="number1">7</div>
+        <div data-value="8" class="number1">8</div>
+        <div data-value="9" class="number1">9</div>
+        <div data-value="0" class="number1">0</div>
+        <div data-value="1" class="number1">1</div>
+        <div data-value="2" class="number1">2</div> 
+        <div data-value="3" class="number1">3</div>
+        <div data-value="4" class="number1">4</div>
+        <div data-value="5" class="number1">5</div>
+        <div data-value="6" class="number1">6</div> 
+        <div data-value="7" class="number1">7</div>
+        <div data-value="8" class="number1">8</div>
+        <div data-value="9" class="number1">9</div>
+      </div>
+      <div class="buttonContainer">
+      <button type="button" id="backButton1" class="backButton" onclick="changeBackToMenu();">Go Back</button>
+      <button type="button" id="resetButton1" class="resetButton">Reset Game</button>
+      <button type="button" id="nextButton1" class="nextButton1" onclick="changeLevel(2);">Next Level</button>
+      </div>
+
+      <div id="modalContainer1" class="modalContainer1">
+        <div id="modal" class="modal1">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton1" class="playAgainButton1">Play Again</button>
+          <button type="button" onclick="changeLevel(2);">Next Level</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="level2">
+      <h1 id="levelTitle" class="levelTitle2">Level 2</h1>
+      <div id="time" class="time2">Time:</div>
+      <div id="timer2" class="timer">00:00</div>
+      <div id="numberContainer2" class="numberContainer">
+        <div data-value="0" class="number2">0</div>
+        <div data-value="1" class="number2">1</div>
+        <div data-value="2" class="number2">2</div> 
+        <div data-value="3" class="number2">3</div>
+        <div data-value="4" class="number2">4</div>
+        <div data-value="5" class="number2">5</div>
+        <div data-value="6" class="number2">6</div> 
+        <div data-value="7" class="number2">7</div>
+        <div data-value="8" class="number2">8</div>
+        <div data-value="9" class="number2">9</div>
+        <div data-value="10" class="number2">10</div>
+        <div data-value="11" class="number2">11</div>
+        <div data-value="12" class="number2">12</div> 
+        <div data-value="13" class="number2">13</div>
+        <div data-value="14" class="number2">14</div>
+        <div data-value="0" class="number2">0</div>
+        <div data-value="1" class="number2">1</div>
+        <div data-value="2" class="number2">2</div> 
+        <div data-value="3" class="number2">3</div>
+        <div data-value="4" class="number2">4</div>
+        <div data-value="5" class="number2">5</div>
+        <div data-value="6" class="number2">6</div> 
+        <div data-value="7" class="number2">7</div>
+        <div data-value="8" class="number2">8</div>
+        <div data-value="9" class="number2">9</div>
+        <div data-value="10" class="number2">10</div>
+        <div data-value="11" class="number2">11</div>
+        <div data-value="12" class="number2">12</div> 
+        <div data-value="13" class="number2">13</div>
+        <div data-value="14" class="number2">14</div>
+       
+      </div>
+      <div class="buttonContainer">
+        <button type="button" id="backButton2" class="backButton2" onclick="changeBackLevel(2)">Go Back</button>
+        <button type="button" id="resetButton2" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton2" class="nextButton2" onclick="changeLevel(3);">Next Level</button>
+      </div>
+
+      <div id="modalContainer2" class="modalContainer2">
+        <div id="modal" class="modal2">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton2" class="playAgainButton2">Play Again</button>
+          <button type="button" onclick="changeLevel(3);">Next Level</button>
+        </div>
+      </div>
+
+ 
+    </div>
+
+    <div id="level3">
+      <h1 id="levelTitle" class="levelTitle3">Level 3</h1>
+      <div id="time" class="time3">Time:</div>
+      <div id="timer3" class="timer">00:00</div>
+      <div id="numberContainer3" class="numberContainer">
+        <div data-value="0" class="number3">0</div>
+        <div data-value="1" class="number3">1</div>
+        <div data-value="2" class="number3">2</div> 
+        <div data-value="3" class="number3">3</div>
+        <div data-value="4" class="number3">4</div>
+        <div data-value="5" class="number3">5</div>
+        <div data-value="6" class="number3">6</div> 
+        <div data-value="7" class="number3">7</div>
+        <div data-value="8" class="number3">8</div>
+        <div data-value="9" class="number3">9</div>
+        <div data-value="10" class="number3">10</div>
+        <div data-value="11" class="number3">11</div>
+        <div data-value="12" class="number3">12</div> 
+        <div data-value="13" class="number3">13</div>
+        <div data-value="14" class="number3">14</div>
+        <div data-value="15" class="number3">15</div>
+        <div data-value="16" class="number3">16</div>
+        <div data-value="17" class="number3">17</div>
+        <div data-value="18" class="number3">18</div>
+        <div data-value="19" class="number3">19</div>
+        <div data-value="0" class="number3">0</div>
+        <div data-value="1" class="number3">1</div>
+        <div data-value="2" class="number3">2</div> 
+        <div data-value="3" class="number3">3</div>
+        <div data-value="4" class="number3">4</div>
+        <div data-value="5" class="number3">5</div>
+        <div data-value="6" class="number3">6</div> 
+        <div data-value="7" class="number3">7</div>
+        <div data-value="8" class="number3">8</div>
+        <div data-value="9" class="number3">9</div>
+        <div data-value="10" class="number3">10</div>
+        <div data-value="11" class="number3">11</div>
+        <div data-value="12" class="number3">12</div> 
+        <div data-value="13" class="number3">13</div>
+        <div data-value="14" class="number3">14</div>
+        <div data-value="15" class="number3">15</div>
+        <div data-value="16" class="number3">16</div>
+        <div data-value="17" class="number3">17</div>
+        <div data-value="18" class="number3">18</div>
+        <div data-value="19" class="number3">19</div>
+      </div>
+      <div class="buttonContainer">
+        <button type="button" id="backButton3" class="backButton3" onclick="changeBackLevel(3);">Go Back</button>
+        <button type="button" id="resetButton3" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton3" class="nextButton3" onclick="changeLevel(4);">Next Level</button>
+      </div>
+
+      <div id="modalContainer3" class="modalContainer3">
+        <div id="modal" class="modal3">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton3" class="playAgainButton3">Play Again</button>
+          <button type="button" onclick="changeLevel(4);">Next Level</button>
+        </div>
+      </div>
+
+  
+    </div>
+
+    <div id="level4">
+      <h1 id="levelTitle" class="levelTitle4">Level 4</h1>
+      <div id="time" class="time4">Time:</div>
+      <div id="timer4" class="timer">00:00</div>
+      <div id="numberContainer4" class="numberContainer">
+        <div data-value="0" class="number4">0</div>
+        <div data-value="1" class="number4">1</div>
+        <div data-value="2" class="number4">2</div> 
+        <div data-value="3" class="number4">3</div>
+        <div data-value="4" class="number4">4</div>
+        <div data-value="5" class="number4">5</div>
+        <div data-value="6" class="number4">6</div> 
+        <div data-value="7" class="number4">7</div>
+        <div data-value="8" class="number4">8</div>
+        <div data-value="9" class="number4">9</div>
+        <div data-value="10" class="number4">10</div>
+        <div data-value="11" class="number4">11</div>
+        <div data-value="12" class="number4">12</div> 
+        <div data-value="13" class="number4">13</div>
+        <div data-value="14" class="number4">14</div>
+        <div data-value="15" class="number4">15</div>
+        <div data-value="16" class="number4">16</div>
+        <div data-value="17" class="number4">17</div>
+        <div data-value="18" class="number4">18</div>
+        <div data-value="19" class="number4">19</div>
+        <div data-value="20" class="number4">20</div>
+        <div data-value="21" class="number4">21</div>
+        <div data-value="22" class="number4">22</div>
+        <div data-value="23" class="number4">23</div>
+        <div data-value="24" class="number4">24</div>
+        <div data-value="0" class="number4">0</div>
+        <div data-value="1" class="number4">1</div>
+        <div data-value="2" class="number4">2</div> 
+        <div data-value="3" class="number4">3</div>
+        <div data-value="4" class="number4">4</div>
+        <div data-value="5" class="number4">5</div>
+        <div data-value="6" class="number4">6</div> 
+        <div data-value="7" class="number4">7</div>
+        <div data-value="8" class="number4">8</div>
+        <div data-value="9" class="number4">9</div>
+        <div data-value="10" class="number4">10</div>
+        <div data-value="11" class="number4">11</div>
+        <div data-value="12" class="number4">12</div> 
+        <div data-value="13" class="number4">13</div>
+        <div data-value="14" class="number4">14</div>
+        <div data-value="15" class="number4">15</div>
+        <div data-value="16" class="number4">16</div>
+        <div data-value="17" class="number4">17</div>
+        <div data-value="18" class="number4">18</div>
+        <div data-value="19" class="number4">19</div>
+        <div data-value="20" class="number4">20</div>
+        <div data-value="21" class="number4">21</div>
+        <div data-value="22" class="number4">22</div>
+        <div data-value="23" class="number4">23</div>
+        <div data-value="24" class="number4">24</div>
+      </div>
+      <div class="buttonContainer">
+        <button type="button" id="backButton4" class="backButton4" onclick="changeBackLevel(4)">Go Back</button>
+        <button type="button" id="resetButton4" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton4" class="nextButton4" onclick="changeLevel(5);">Next Level</button>
+      </div>
+
+      <div id="modalContainer4" class="modalContainer4">
+        <div id="modal" class="modal4">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton4" class="playAgainButton4">Play Again</button>
+          <button type="button" onclick="changeLevel(5);">Next Level</button>
+        </div>
+      </div>
+    
+      
+    </div>
+
+    <div id="level5">
+      <h1 id="levelTitle" class="levelTitle5">Level 5</h1>
+      <div id="time" class="time5">Time:</div>
+      <div id="timer5" class="timer">00:00</div>
+      <div id="numberContainer5" class="numberContainer">
+        <div data-value="0" class="number5">0</div>
+        <div data-value="1" class="number5">1</div>
+        <div data-value="2" class="number5">2</div> 
+        <div data-value="3" class="number5">3</div>
+        <div data-value="4" class="number5">4</div>
+        <div data-value="5" class="number5">5</div>
+        <div data-value="6" class="number5">6</div> 
+        <div data-value="7" class="number5">7</div>
+        <div data-value="8" class="number5">8</div>
+        <div data-value="9" class="number5">9</div>
+        <div data-value="10" class="number5">10</div>
+        <div data-value="11" class="number5">11</div>
+        <div data-value="12" class="number5">12</div> 
+        <div data-value="13" class="number5">13</div>
+        <div data-value="14" class="number5">14</div>
+        <div data-value="15" class="number5">15</div>
+        <div data-value="16" class="number5">16</div>
+        <div data-value="17" class="number5">17</div>
+        <div data-value="18" class="number5">18</div>
+        <div data-value="19" class="number5">19</div>
+        <div data-value="20" class="number5">20</div>
+        <div data-value="21" class="number5">21</div>
+        <div data-value="22" class="number5">22</div>
+        <div data-value="23" class="number5">23</div>
+        <div data-value="24" class="number5">24</div>
+        <div data-value="25" class="number5">25</div>
+        <div data-value="26" class="number5">26</div>
+        <div data-value="27" class="number5">27</div>
+        <div data-value="28" class="number5">28</div>
+        <div data-value="29" class="number5">29</div>
+        <div data-value="0" class="number5">0</div>
+        <div data-value="1" class="number5">1</div>
+        <div data-value="2" class="number5">2</div> 
+        <div data-value="3" class="number5">3</div>
+        <div data-value="4" class="number5">4</div>
+        <div data-value="5" class="number5">5</div>
+        <div data-value="6" class="number5">6</div> 
+        <div data-value="7" class="number5">7</div>
+        <div data-value="8" class="number5">8</div>
+        <div data-value="9" class="number5">9</div>
+        <div data-value="10" class="number5">10</div>
+        <div data-value="11" class="number5">11</div>
+        <div data-value="12" class="number5">12</div> 
+        <div data-value="13" class="number5">13</div>
+        <div data-value="14" class="number5">14</div>
+        <div data-value="15" class="number5">15</div>
+        <div data-value="16" class="number5">16</div>
+        <div data-value="17" class="number5">17</div>
+        <div data-value="18" class="number5">18</div>
+        <div data-value="19" class="number5">19</div>
+        <div data-value="20" class="number5">20</div>
+        <div data-value="21" class="number5">21</div>
+        <div data-value="22" class="number5">22</div>
+        <div data-value="23" class="number5">23</div>
+        <div data-value="24" class="number5">24</div>
+        <div data-value="25" class="number5">25</div>
+        <div data-value="26" class="number5">26</div>
+        <div data-value="27" class="number5">27</div>
+        <div data-value="28" class="number5">28</div>
+        <div data-value="29" class="number5">29</div>
+      </div>
+      <div class="buttonContainer">
+        <button type="button" id="backButton5" class="backButton5" onclick="changeBackLevel(5)">Go Back</button>
+        <button type="button" id="resetButton5" class="resetButton">Reset Game</button>
+        <button type="button" id="nextButton5" class="nextButton5">Next Level</button>
+      </div>
+
+      <div id="modalContainer5" class="modalContainer5">
+        <div id="modal" class="modal5">
+          <h1>Congratulations!</h1>
+          <button type="button" id="playAgainButton5" class="playAgainButton5">Play Again</button>
+          <button type="button" >Next Level</button>
+        </div>
+      </div>
+   
+    </div>
+
+
+     
+    
+
+    <script src="easy-difficulty.js"></script>
+  </body>
+</html>
