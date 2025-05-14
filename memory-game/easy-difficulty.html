@@ -7,11 +7,97 @@
     <link rel="stylesheet" href="easy-difficulty.css">
   </head>
   <body>
+    <img id="lightmode" src="../memory-game-pictures/lightmode.jpg" alt="beach">
+    <img id="darkmode" src="../memory-game-pictures/darkmode.jpg" alt="jungle">
+    <audio autoplay loop  id="backgroundmusic">
+      <source src="../memory-game-pictures/backgroundmusic.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+      
+      <div class="pointsOnScreen">🪙Points: <span id="totalPoints">0</span></div>
+      <div id="lives">❤️Lives: <span id="totalLives">5</span></div>
+      <div class="preShop">Shop<span class="shopIcon">💰</span></div>
+      <div id="preSettings">Settings<span class="settingsIcon">⚙️</span></div>
+      
+      <div id="shopPanel">
+        <h2 id="shopTitle">Shop</h2>
+        <button type="button" class="closeButtonShop">&times</button>
+
+        <div class="shop">
+          <button type="button" id="extraLife">
+            <span class="oneExtraLife">+1</span>
+            ❤️
+            <span id="priceOneExtraLife">100🪙</span>
+          </button>
+        </div>
+
+        <div class="shop">
+          <button type="button" id="fiveLives">
+            <span class="fiveExtraLives">+5</span>
+            💕
+            <span id="priceFiveExtraLives">500🪙</span>
+          </button>
+        </div>
+        
+        <div class="shop">
+          <input title="moreLives" type="number" id="moreLivesValue" name="moreLivesValue" min="0" max="99" value="10">
+          <button type="button" id="moreLives">
+            💕
+            <span id="priceMoreLives">1000🪙</span>
+          </button>
+        </div>
+        
+      </div>
+
+      <div id="settingsPanel" class="settingsPanel">
+        <h2 id="settings">Settings</h2>
+        <button type="button" class="closeButton">&times</button>
+        <div class="setting">
+          <label id="languageLabel" for="language">Language</label>
+          <select id="language">
+              <option id="en" value="en">English</option>
+              <option id="de" value="de">German</option>
+              <option id="fr" value="fr">French</option>
+          </select>
+        </div>
+
+        <div class="setting">
+          <label id="themeLabel" for="theme">Theme</label>
+          <select id="theme" name="theme">
+            <option id="light" value="light">Light</option>
+            <option id="dark" value="dark">Dark</option>
+          </select>
+        </div>
+
+        <div class="setting">
+          <label id="volumeLabel" for="volume">Volume</label>
+          <input type="range" id="volume" name="volume" min="0" max="100" value="15">
+          <input title="volume" type="number" id="volumeValue" name="volumeValue" min="0" max="100" value="15">
+        </div>
+        
+  
+        <div class="setting">
+          <label id="zoomLabel" for="zoom">Zoom</label>
+          <input type="range" id="zoom" min="50" max="200" value="100">
+          <input title="zoom" type="number" id="zoomValue" min="50" max="200" value="100">%
+        </div>
+    
+      </div>
+    </header>
+   
+    <div id="modeSelection">
+      <h2 class="selectModeTitle">Select Game Mode</h2>
+      <button type="button" id="classicModeButton">Classic Mode</button>
+      <button type="button" id="livesModeButton">Lives Mode</button>
+    </div>
+
+  
    
     
     <div id="level1">
-      <h1 id="levelTitle" class="levelTitle">Level 1</h1>
-      <div id="time" class="time">Time:</div>
+      <h1 id="levelTitle1" class="levelTitle">Level 1</h1>
+      <div id="time1" class="time">Time:</div>
       <div id="timer1" class="timer">00:00</div>
       <div id="numberContainer1" class="numberContainer">
         <div data-value="0" class="number1">0</div>
@@ -35,25 +121,48 @@
         <div data-value="8" class="number1">8</div>
         <div data-value="9" class="number1">9</div>
       </div>
+
       <div class="buttonContainer">
-      <button type="button" id="backButton1" class="backButton" onclick="changeBackToMenu();">Go Back</button>
-      <button type="button" id="resetButton1" class="resetButton">Reset Game</button>
-      <button type="button" id="nextButton1" class="nextButton1" onclick="changeLevel(2);">Next Level</button>
+        <button type="button" id="backButton1" class="backButton" onclick="changeBackToMenu();">Go Back</button>
+        <button type="button" id="resetButton1" class="resetButton">Reset Game</button>
+        <div id="wrapMessage1">
+          <button type="button" id="nextButton1" class="nextButton">
+            Next Level
+            <span id="completeMessage1" class="completeMessage">Complete this level to continue</span>
+          </button>
+        </div>
+        
       </div>
 
-      <div id="modalContainer1" class="modalContainer1">
-        <div id="modal" class="modal1">
-          <h1>Congratulations!</h1>
-          <button type="button" id="playAgainButton1" class="playAgainButton1">Play Again</button>
-          <button type="button" onclick="changeLevel(2);">Next Level</button>
+      <div id="modalContainer1" class="modalContainer">
+        <div id="modal1" class="modal">
+          <h1 id="modalTitle1">Congratulations!</h1>
+          <div id="scoreContainer1" class="scoreContainer">
+            <div id="score1" class="score">Your Score: <span id="scoreValue1">00:00</span></div>
+            <div id="highScore1" class="highScore">High Score: <span id="highScoreValue1">00:00</span></div>
+          </div>
+          <div id="movesContainer1" class="movesContainer">
+            <div id="moves1" class="moves">Your Moves: <span id="movesValue1">0</span></div>
+            <div id="bestMoves1" class="bestMoves">Best Moves: <span id="bestMovesValue1">0</span></div>
+          </div>
+          <div id="pointsContainer1" class="pointsContainer">
+            <div id="points1" class="points">Points Earned: <span id="pointsValue1">0</span></div>
+            <div id="totalPoints1" class="totalPoints">Total Points: <span id="totalPointsValue1">0</span></div>
+          </div>
         </div>
+      </div>
+
+
+      <div id="gameOver1" class="gameOver">
+        <h2 class="gameOverTitle">Game Over!</h2>
+        <button type="button" id="restart1" class="restart">Restart</button>
       </div>
 
     </div>
 
     <div id="level2">
-      <h1 id="levelTitle" class="levelTitle2">Level 2</h1>
-      <div id="time" class="time2">Time:</div>
+      <h1 id="levelTitle2" class="levelTitle">Level 2</h1>
+      <div id="time2" class="time">Time:</div>
       <div id="timer2" class="timer">00:00</div>
       <div id="numberContainer2" class="numberContainer">
         <div data-value="0" class="number2">0</div>
@@ -89,25 +198,47 @@
        
       </div>
       <div class="buttonContainer">
-        <button type="button" id="backButton2" class="backButton2" onclick="changeBackLevel(2)">Go Back</button>
+        <button type="button" id="backButton2" class="backButton">Go Back</button>
         <button type="button" id="resetButton2" class="resetButton">Reset Game</button>
-        <button type="button" id="nextButton2" class="nextButton2" onclick="changeLevel(3);">Next Level</button>
+        <div id="wrapMessage2">
+          <button type="button" id="nextButton2" class="nextButton">
+            Next Level
+            <span id="completeMessage2" class="completeMessage">Complete this level to continue</span>
+          </button>
+        </div>
+        
       </div>
 
-      <div id="modalContainer2" class="modalContainer2">
-        <div id="modal" class="modal2">
-          <h1>Congratulations!</h1>
-          <button type="button" id="playAgainButton2" class="playAgainButton2">Play Again</button>
-          <button type="button" onclick="changeLevel(3);">Next Level</button>
+      <div id="modalContainer2" class="modalContainer">
+        <div id="modal2" class="modal">
+          <h1 id="modalTitle2">Congratulations!</h1>
+          <div id="scoreContainer2" class="scoreContainer">
+            <div id="score2" class="score">Your Score: <span id="scoreValue2">00:00</span></div>
+            <div id="highScore2" class="highScore">High Score: <span id="highScoreValue2">00:00</span></div>
+          </div>
+          <div id="movesContainer2" class="movesContainer">
+            <div id="moves2" class="moves">Your Moves: <span id="movesValue2">0</span></div>
+            <div id="bestMoves2" class="bestMoves">Best Moves: <span id="bestMovesValue2">0</span></div>
+          </div>
+          <div id="pointsContainer2" class="pointsContainer">
+            <div id="points2" class="points">Points Earned: <span id="pointsValue2">0</span></div>
+            <div id="totalPoints2" class="totalPoints">Total Points: <span id="totalPointsValue2">0</span></div>
+          </div>
         </div>
       </div>
 
- 
+      <div id="gameOver2" class="gameOver">
+        <h2 class="gameOverTitle">Game Over!</h2>
+        <button type="button" id="restart2" class="restart">Restart</button>
+      </div>
+
     </div>
 
+
+
     <div id="level3">
-      <h1 id="levelTitle" class="levelTitle3">Level 3</h1>
-      <div id="time" class="time3">Time:</div>
+      <h1 id="levelTitle3" class="levelTitle">Level 3</h1>
+      <div id="time3" class="time">Time:</div>
       <div id="timer3" class="timer">00:00</div>
       <div id="numberContainer3" class="numberContainer">
         <div data-value="0" class="number3">0</div>
@@ -152,25 +283,47 @@
         <div data-value="19" class="number3">19</div>
       </div>
       <div class="buttonContainer">
-        <button type="button" id="backButton3" class="backButton3" onclick="changeBackLevel(3);">Go Back</button>
+        <button type="button" id="backButton3" class="backButton">Go Back</button>
         <button type="button" id="resetButton3" class="resetButton">Reset Game</button>
-        <button type="button" id="nextButton3" class="nextButton3" onclick="changeLevel(4);">Next Level</button>
+        <div id="wrapMessage3">
+          <button type="button" id="nextButton3" class="nextButton">
+            Next Level
+            <span id="completeMessage3" class="completeMessage">Complete this level to continue</span>
+          </button>
+        </div>
+        
       </div>
 
-      <div id="modalContainer3" class="modalContainer3">
-        <div id="modal" class="modal3">
-          <h1>Congratulations!</h1>
-          <button type="button" id="playAgainButton3" class="playAgainButton3">Play Again</button>
-          <button type="button" onclick="changeLevel(4);">Next Level</button>
+      <div id="modalContainer3" class="modalContainer">
+        <div id="modal3" class="modal">
+          <h1 id="modalTitle3">Congratulations!</h1>
+          <div id="scoreContainer3" class="scoreContainer">
+            <div id="score3" class="score">Your Score: <span id="scoreValue3">00:00</span></div>
+            <div id="highScore3" class="highScore">High Score: <span id="highScoreValue3">00:00</span></div>
+          </div>
+          <div id="movesContainer3" class="movesContainer">
+            <div id="moves3" class="moves">Your Moves: <span id="movesValue3">0</span></div>
+            <div id="bestMoves3" class="bestMoves">Best Moves: <span id="bestMovesValue3">0</span></div>
+          </div>
+          <div id="pointsContainer3" class="pointsContainer">
+            <div id="points3" class="points">Points Earned: <span id="pointsValue3">0</span></div>
+            <div id="totalPoints3" class="totalPoints">Total Points: <span id="totalPointsValue3">0</span></div>
+          </div>
         </div>
       </div>
 
-  
+      <div id="gameOver3" class="gameOver">
+        <h2 class="gameOverTitle">Game Over!</h2>
+        <button type="button" id="restart3" class="restart">Restart</button>
+      </div>
+
     </div>
 
+
+
     <div id="level4">
-      <h1 id="levelTitle" class="levelTitle4">Level 4</h1>
-      <div id="time" class="time4">Time:</div>
+      <h1 id="levelTitle4" class="levelTitle">Level 4</h1>
+      <div id="time4" class="time">Time:</div>
       <div id="timer4" class="timer">00:00</div>
       <div id="numberContainer4" class="numberContainer">
         <div data-value="0" class="number4">0</div>
@@ -225,25 +378,47 @@
         <div data-value="24" class="number4">24</div>
       </div>
       <div class="buttonContainer">
-        <button type="button" id="backButton4" class="backButton4" onclick="changeBackLevel(4)">Go Back</button>
+        <button type="button" id="backButton4" class="backButton">Go Back</button>
         <button type="button" id="resetButton4" class="resetButton">Reset Game</button>
-        <button type="button" id="nextButton4" class="nextButton4" onclick="changeLevel(5);">Next Level</button>
+        <div id="wrapMessage4">
+          <button type="button" id="nextButton4" class="nextButton">
+            Next Level
+            <span id="completeMessage4" class="completeMessage">Complete this level to continue</span>
+          </button>
+        </div>
+        
       </div>
 
-      <div id="modalContainer4" class="modalContainer4">
-        <div id="modal" class="modal4">
-          <h1>Congratulations!</h1>
-          <button type="button" id="playAgainButton4" class="playAgainButton4">Play Again</button>
-          <button type="button" onclick="changeLevel(5);">Next Level</button>
+      <div id="modalContainer4" class="modalContainer">
+        <div id="modal4" class="modal">
+          <h1 id="modalTitle4">Congratulations!</h1>
+          <div id="scoreContainer4" class="scoreContainer">
+            <div id="score4" class="score">Your Score: <span id="scoreValue4">00:00</span></div>
+            <div id="highScore4" class="highScore">High Score: <span id="highScoreValue4">00:00</span></div>
+          </div>
+          <div id="movesContainer4" class="movesContainer">
+            <div id="moves4" class="moves">Your Moves: <span id="movesValue4">0</span></div>
+            <div id="bestMoves4" class="bestMoves">Best Moves: <span id="bestMovesValue4">0</span></div>
+          </div>
+          <div id="pointsContainer4" class="pointsContainer">
+            <div id="points4" class="points">Points Earned: <span id="pointsValue4">0</span></div>
+            <div id="totalPoints4" class="totalPoints">Total Points: <span id="totalPointsValue4">0</span></div>
+          </div>
         </div>
       </div>
-    
-      
+
+      <div id="gameOver4" class="gameOver">
+        <h2 class="gameOverTitle">Game Over!</h2>
+        <button type="button" id="restart4" class="restart">Restart</button>
+      </div>
+
     </div>
 
+
+
     <div id="level5">
-      <h1 id="levelTitle" class="levelTitle5">Level 5</h1>
-      <div id="time" class="time5">Time:</div>
+      <h1 id="levelTitle5" class="levelTitle">Level 5</h1>
+      <div id="time5" class="time">Time:</div>
       <div id="timer5" class="timer">00:00</div>
       <div id="numberContainer5" class="numberContainer">
         <div data-value="0" class="number5">0</div>
@@ -308,17 +483,34 @@
         <div data-value="29" class="number5">29</div>
       </div>
       <div class="buttonContainer">
-        <button type="button" id="backButton5" class="backButton5" onclick="changeBackLevel(5)">Go Back</button>
+        <button type="button" id="backButton5" class="backButton">Go Back</button>
         <button type="button" id="resetButton5" class="resetButton">Reset Game</button>
-        <button type="button" id="nextButton5" class="nextButton5">Next Level</button>
+        <button type="button" id="nextButton5" class="nextButton">Next Level</button>
+        
       </div>
 
-      <div id="modalContainer5" class="modalContainer5">
-        <div id="modal" class="modal5">
-          <h1>Congratulations!</h1>
-          <button type="button" id="playAgainButton5" class="playAgainButton5">Play Again</button>
-          <button type="button" >Next Level</button>
+      <div id="modalContainer5" class="modalContainer">
+        <div id="modal5" class="modal">
+          <h1 id="modalTitle5">Congratulations!</h1>
+          <div id="scoreContainer5" class="scoreContainer">
+            <div id="score5" class="score">Your Score: <span id="scoreValue5">00:00</span></div>
+            <div id="highScore5" class="highScore">High Score: <span id="highScoreValue5">00:00</span></div>
+          </div>
+          <div id="movesContainer5" class="movesContainer">
+            <div id="moves5" class="moves">Your Moves: <span id="movesValue5">0</span></div>
+            <div id="bestMoves5" class="bestMoves">Best Moves: <span id="bestMovesValue5">0</span></div>
+          </div>
+          <div id="pointsContainer5" class="pointsContainer">
+            <div id="points5" class="points">Points Earned: <span id="pointsValue5">0</span></div>
+            <div id="totalPoints5" class="totalPoints">Total Points: <span id="totalPointsValue5">0</span></div>
+          </div>
         </div>
+        </div>
+      </div>
+
+      <div id="gameOver5" class="gameOver">
+        <h2 class="gameOverTitle">Game Over!</h2>
+        <button type="button" id="restart5" class="restart" >Restart</button>
       </div>
    
     </div>

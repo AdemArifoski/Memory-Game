@@ -2,20 +2,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  pointer-events: none;
 }
 
-#levelTitle { 
+
+.levelTitle { 
   text-align: center;
   margin-top: 100px;
   margin-bottom: 50px;
   text-decoration: underline;
+  color:white;
 }
 
 
 
-#time {
+.time {
   font-size: 20px;
   text-align: center;
+  color: white;
 } 
 
 
@@ -24,6 +29,7 @@ body {
   font-size: 20px;
   margin-left: 4px;
   text-align: center;
+  color: white;
 }
 
 .buttonContainer {
@@ -33,30 +39,33 @@ body {
   margin-top: 50px; 
 }
 
-#backButton1, #backButton2, #backButton3, #backButton4, #backButton5 {
+.backButton {
   margin-left: 0; 
   cursor: pointer;
-  border-radius: 4px;
   width: 100px;
   padding-top: 3px;
   padding-bottom: 3px;
+  border:2px solid black;
+  background-color: rgb(245, 245, 245);
 }
 
 .resetButton {
   cursor: pointer;
-  border-radius: 4px;
   width: 100px;
   padding-top: 3px;
   padding-bottom: 3px;
+  border:2px solid black;
+  background-color: rgb(245, 245, 245);
 }
 
-#nextButton1, #nextButton2, #nextButton3, #nextButton4, #nextButton5 {
+.nextButton {
   margin-right: 0; 
   cursor: pointer;
-  border-radius: 4px;
   width: 100px;
   padding-top: 3px;
   padding-bottom: 3px;
+  border:2px solid black;
+  background-color: rgb(245, 245, 245);
 }
 
 .numberContainer {
@@ -104,43 +113,320 @@ body {
   transform: rotateY(180deg);
 }
 
-#modalContainer1, #modalContainer2, #modalContainer3, #modalContainer4, #modalContainer5 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modalContainer {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
-#modalContainer1.show, #modalContainer2.show, #modalContainer3.show, #modalContainer4.show, #modalContainer5.show {
-  pointer-events: auto;
+.modalContainer.show {
   opacity: 1;
   border: 2px solid #000; 
   border-radius: 8px;
   width: 500px;
+  background-color: white;
+  display: block;
 }
 
-.modalContainer1.show { margin-left: 40px;  margin-top: -400px;}
-.modalContainer2.show { margin-left: 100px; margin-top: -500px;}
-.modalContainer3.show { margin-left: 230px; margin-top: -500px;}
-.modalContainer4.show { margin-left: 350px; margin-top: -500px;}
-.modalContainer5.show { margin-left: 340px; margin-top: -600px;}
+#modalContainer1.show { margin-left: 40px;  margin-top: -450px;}
+#modalContainer2.show { margin-left: 100px; margin-top: -500px;}
+#modalContainer3.show { margin-left: 230px; margin-top: -500px;}
+#modalContainer4.show { margin-left: 350px; margin-top: -500px;}
+#modalContainer5.show { margin-left: 340px; margin-top: -600px;}
 
 
-#modal {
-  text-align: center;
-  padding-top: 100px;
+.modal {
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
-
-#modal h1{
-  margin: 0;
-  padding: 0;
+.modal h1{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-#playAgainButton1, #playAgainButton2, #playAgainButton3, #playAgainButton4, #playAgainButton5 {
-  margin-top: 50px;
-  margin-right: 100px;
+
+
+.scoreContainer, .movesContainer, .pointsContainer{
+  display: flex;
+  justify-content: center;
 }
+.score{
+  margin-right: 40px;
+}
+
+.moves{
+  margin-right: 50px;
+}
+
+.points {
+  margin-right: 45px;
+}
+
+
+
+header {
+  position: fixed;           
+  top: 0;
+  left: 0;
+  width: 100%; 
+  padding-top: 10px;
+  padding-bottom: 10px;              
+  display: flex;
+  justify-content: center;
+  align-items: center;   
+  background-color: rgb(0, 0, 0, 0.4) ;  
+  z-index: 1000;       
+}
+
+.pointsOnScreen{
+  color: white;
+}
+
+#lives{
+  position: absolute;
+  right: 25%;
+  display: none;
+  color: white;
+}
+
+.preShop{
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 13.5%;
+  display: none;
+  padding-bottom: 5px;
+}
+
+.shopIcon{
+  font-size: 20px;
+}
+
+#shopPanel{
+  text-align: left;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 200px;
+  background-color: white;
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: none;
+}
+
+.shop {
+  display: inline-block;
+}
+
+#extraLife, #fiveLives, #moreLives {
+  padding: 10px 15px;
+  font-size: 40px;
+  background-color: #ffdddd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+}
+.oneExtraLife, .fiveExtraLives{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 15px;
+}
+
+#extraLife:hover, #fiveLives:hover, #moreLives:hover{
+  border: 2px solid black;
+}
+
+#priceOneExtraLife, #priceFiveExtraLives, #priceMoreLives{
+  font-size: 17px;
+  position: absolute;
+  top: 63px;
+  left: 13px;
+  border: 1px solid black;
+  border-radius: 7px;
+  background-color: lightgreen;
+  padding: 2px 2px;
+}
+
+#priceMoreLives {left: 9px;}
+
+#moreLivesValue{
+  width: 36px;
+  position: absolute;
+  top: 90px;
+  left: 220px;
+  z-index: 1;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.closeButtonShop{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+#preSettings{
+ position: absolute;
+ right: 0;
+ margin-bottom: 5px;
+ color: white;
+}
+
+.settingsIcon {
+ font-size: 20px;
+ cursor: pointer;
+ pointer-events: auto;
+}
+
+
+
+#settingsPanel {
+  text-align: left;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 270px;
+  background-color: white;
+  box-sizing: border-box;
+  display: none;
+  pointer-events: auto;
+}
+
+
+
+.setting {
+  margin-bottom: 10px;
+}
+
+#volume, #zoom{
+  width: 100px;
+}
+
+#volumeValue, #zoomValue{
+  width: 40px;
+}
+
+.closeButton{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+#darkmode, #lightmode {
+  position: fixed;         
+  top: 0;
+  left: 0;
+  width: 100vw;           
+  height: 100vh;           
+  object-fit: cover;       
+  z-index: -1;             
+}
+
+
+
+#modeSelection{
+  border: 2px solid black;
+  border-radius: 10px;
+  position: absolute;
+  margin-top: 205px;
+  width: 400px;
+  height: 200px; 
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.selectModeTitle{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#classicModeButton{
+  margin-top: 10px;
+  margin-left: 75px;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  width: 100px;
+  cursor: pointer;
+}
+#livesModeButton{
+  margin-left: 50px;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  width: 100px;
+  cursor: pointer;
+}
+
+.gameOver{
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gameOver.show {
+  border: 2px solid black;
+  border-radius: 10px;
+  position: absolute;
+  width: 400px;
+  height: 200px; 
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  pointer-events: auto;
+  color: white;
+  opacity: 1;
+  display: block;
+}
+
+#gameOver1.show{margin-left: 87px;  margin-top: -408px;}
+#gameOver2.show{margin-left: 145px; margin-top: -500px;}
+#gameOver3.show{margin-left: 270px; margin-top: -500px;}
+#gameOver4.show{margin-left: 0px; margin-top: 0px;}
+#gameOver5.show{margin-left: 0px; margin-top: 0px;}
+
+
+.gameOverTitle{
+  display: flex;
+  justify-content: center;
+}
+
+.restart{
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 160px;
+  border-radius: 10px;
+  padding:15px 15px;
+  border: none;
+  font-size: 15px;
+}
+
+
+.nextButton .completeMessage{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  position: absolute;
+  margin-top: -48px;
+  margin-left: -9px;
+  white-space: nowrap;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
 

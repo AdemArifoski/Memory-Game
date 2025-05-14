@@ -4,12 +4,12 @@ body {
   align-items: center;
   position: relative; 
   margin: 0;
+  height: 100vh;
 }
 
 
 h1 {
   font-size: 40px;
-  margin-top: 250px;
   margin-bottom: 100px;
   color: white;
 }
@@ -93,30 +93,81 @@ p {
 }
 
 .menu {
-  z-index: 1;
+  height: 600px;
 }
 
-.background-video {
+.backgroundVideo {
   position: absolute;
   top: 0;
   left: 0;
   width: 33.33%;
-  z-index: 0; 
+  z-index: -1;
+  height: 100%;
+  object-fit: cover;
 }
 
-.numbers-video{
+.numbersVideo{
   position: absolute;
   top: 0;
   left: 33.33%;
   width: 33.33%; 
-  z-index: 0; 
+  z-index: -1; 
+  height: 100%;
+  object-fit: cover;
 }
 
-.anime-video {
+.animeVideo {
   position: absolute;
   top: 0;
   left: 66.66%; 
   width: 33.33%; 
-  z-index: 0; 
+  z-index: -1; 
+  height: 100%;
+  object-fit: cover;
 }
 
+
+header {
+  position: fixed;           
+  top: 0;
+  left: 0;
+  width: 100%; 
+  padding-top: 10px;
+  padding-bottom: 10px;              
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  z-index: 1000;       
+}
+
+#preSettings{
+ position: absolute;
+ right: 0;
+ margin-bottom: 5px;
+ color: white;
+}
+
+.settingsIcon {
+ font-size: 20px;
+ cursor: pointer;
+}
+
+#settingsPanel {
+  text-align: left;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 270px;
+  height: 190px;
+  background-color: white;
+  box-sizing: border-box;
+  display: none;
+}
+
+.closeButton{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}

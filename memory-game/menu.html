@@ -1,63 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card Memory Game</title>
-  <link rel="stylesheet" href="menu.css">
-</head>
-<body>
-  <div class="menu">
-    <h1>Card Memory Game</h1>
-    <p>Select Difficulty</p>
-    <button type="button" id="hardButton">Hard</button>
-    <button type="button" id="mediumButton">Medium</button>
-    <button type="button" id="easyButton">Easy</button>
-
-    <div id="optionsForEasyDifficulty" class="optionsForEasyDifficulty">
-      <div class="selectButtons">
-        <h2>Select Topic</h2>
-        <div class="numbers" onclick="changeToEasyDifficulty();">123
-          <div class="numbers2">Numbers</div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Memory Game</title>
+    <link rel="stylesheet" href="menu.css">
+  </head>
+  <body>
+    
+    <header>
+      <div id="preSettings">Settings<span class="settingsIcon">⚙️</span></div>
+      
+      <div id="settingsPanel" class="settingsPanel">
+        <h2 id="settings">Settings</h2>
+        <button type="button" class="closeButton">&times</button>
+        <div class="setting">
+          <label id="languageLabel" for="language">Language</label>
+          <select id="language">
+            <option id="en" value="en">English</option>
+            <option id="de" value="de">German</option>
+            <option id="fr" value="fr">French</option>
+          </select>
         </div>
       </div>
-    </div>
+    </header>
+    
+    
 
-    <div id="optionsForMediumDifficulty" class="optionsForMediumDifficulty">
-      <div class="selectButtons">
-        <h2>Select Topic</h2>
-        <div class="numbers" onclick="changeToMediumDifficulty();">Minions
+    <div class="menu">
+      <h1>Card Memory Game</h1>
+      <p id="selectDifficulty">Select Difficulty</p>
+      <button type="button" id="hardButton">Hard</button>
+      <button type="button" id="mediumButton">Medium</button>
+      <button type="button" id="easyButton">Easy</button>
+
+      <div id="optionsForEasyDifficulty" class="optionsForEasyDifficulty">
+        <div class="selectButtons">
+          <h2 id="selectTopic1" class="selectTopic">Select Topic</h2>
+          <div class="numbers" onclick="changeToEasyDifficulty();">123
+            <div id="numbers" class="numbers2">Numbers</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="optionsForHardDifficulty" class="optionsForHardDifficulty">
-      <div class="selectButtons">
-        <h2>Select Topic</h2>
-        <div class="numbers" onclick="changeToHardDifficulty();">Naruto
+      <div id="optionsForMediumDifficulty" class="optionsForMediumDifficulty">
+        <div class="selectButtons">
+          <h2 id="selectTopic2" class="selectTopic">Select Topic</h2>
+          <div id="minions" class="numbers" onclick="changeToMediumDifficulty();">Minions
+          </div>
         </div>
       </div>
+
+      <div id="optionsForHardDifficulty" class="optionsForHardDifficulty">
+        <div class="selectButtons">
+          <h2 id="selectTopic3" class="selectTopic">Select Topic</h2>
+          <div id="naruto" class="numbers" onclick="changeToHardDifficulty();">Naruto
+          </div>
+        </div>
+      </div>
+
     </div>
 
-  </div>
-
-  <div>
-    <video autoplay muted loop class="background-video">
-      <source src="../memory-game-pictures/minions-menu.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop class="numbers-video">
-      <source src="../memory-game-pictures/numbers-menu.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop class="anime-video">
-      <source src="../memory-game-pictures/anime-menu.mp4" type="video/mp4">
-    </video>
-  </div>
+    <div>
+      <video autoplay muted loop class="backgroundVideo">
+        <source src="../memory-game-pictures/minions-menu.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop class="numbersVideo">
+        <source src="../memory-game-pictures/numbers-menu.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop class="animeVideo">
+        <source src="../memory-game-pictures/anime-menu.mp4" type="video/mp4">
+      </video>
+    </div>
 
 
 
-
-  <script src="menu.js"></script>
-</body>
+    <script src="menu.js"></script>
+  </body>
 </html>
 
 
