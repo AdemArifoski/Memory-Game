@@ -51,7 +51,7 @@ document.getElementById("creditsButton").addEventListener("click", function(){
   click++;
   const settingsPanel = document.getElementById("settingsPanel");
   const credits = document.getElementById("credits");
-  settingsPanel.style.height = "550px";
+  settingsPanel.style.height = "600px";
   if(click % 2 !== 0) {
     credits.style.display = "block";
   } else {
@@ -79,14 +79,14 @@ const translations = {
     selectTopic: "Select Topic",
     selectNumber: "Numbers",
     credits1: "Naruto characters:",
-    credits2: "Used for a school project.",
+    credits2: "Images used for a school project.",
     credits3: "Found on Pinterest.",
     credits4: "Found on Google Images.",
     credits5: "Demon Slayer characters:",
     credits6: "Number image:",
     credits7: "Light and Dark Mode images",
     credits8: "Credits",
-    credits9: "Image Credits"
+    credits9: "Image Credits",
     
   },
   de: {
@@ -105,7 +105,7 @@ const translations = {
     selectTopic: "Thema auswählen",
     selectNumber: "Zahlen",
     credits1: "Naruto Charaktere:",
-    credits2: "Für ein Schulprojekt verwendet.",
+    credits2: "Bilder für ein Schulprojekt verwendet.",
     credits3: "Auf Pinterest gefunden.",
     credits4: "Auf Google Bilder gefunden.",
     credits5: "Demon Slayer Charaktere:",
@@ -131,7 +131,7 @@ const translations = {
     selectTopic: "Sélectionner un sujet",
     selectNumber: "Nombres",
     credits1: "Personnages de Naruto:",
-    credits2: "Utilisé pour un projet scolaire.",
+    credits2: "Images utilisé pour un projet scolaire.",
     credits3: "Trouvé sur Pinterest.",
     credits4: "Trouvé sur Google Images.",
     credits5: "Personnages de Demon Slayer:",
@@ -162,18 +162,17 @@ const selectTopics = [
 let numbers = document.getElementById("numbers");
 let creditsOnImages1 = document.getElementById("narutoCredits1");
 let creditsOnImages2 = document.getElementById("narutoCredits2");
-let creditsOnImages3 = document.getElementById("narutoCredits3");
-let creditsOnImages4 = document.getElementById("demonSlayerCredits1");
-let creditsOnImages5 = document.getElementById("demonSlayerCredits2");
-let creditsOnImages6 = document.getElementById("demonSlayerCredits3");
-let creditsOnImages7 = document.getElementById("numberCredits1");
-let creditsOnImages8 = document.getElementById("numberCredits2");
-let creditsOnImages9 = document.getElementById("numberCredits3");
-let creditsOnImages10 = document.getElementById("iightDarkCredits1");
-let creditsOnImages11 = document.getElementById("iightDarkCredits2");
-let creditsOnImages12 = document.getElementById("iightDarkCredits3");
+let creditsOnImages3 = document.getElementById("demonSlayerCredits1");
+let creditsOnImages4 = document.getElementById("demonSlayerCredits2");
+let creditsOnImages5 = document.getElementById("numberCredits1");
+let creditsOnImages6 = document.getElementById("numberCredits2");
+let creditsOnImages7 = document.getElementById("iightDarkCredits1");
+let creditsOnImages8 = document.getElementById("iightDarkCredits2");
+let creditsOnImages9 = document.getElementById("minionsCredits1");
+let creditsOnImages10 = document.getElementById("minionsCredits2");
 let imageCredits1 = document.getElementById("creditsButton");
 let imageCredits2 = document.getElementById("imageCredits");
+let imagePar = document.getElementById("imagesPar");
 
 languageSelect.addEventListener("change", (e) => {
   setLanguage(e.target.value)
@@ -196,19 +195,17 @@ const setLanguage = (language) => {
     });
     numbers.innerText = translations.en.selectNumber;
     creditsOnImages1.innerText = translations.en.credits1;
-    creditsOnImages2.innerText = translations.en.credits2;
-    creditsOnImages3.innerText = translations.en.credits3;
-    creditsOnImages4.innerText = translations.en.credits5;
-    creditsOnImages5.innerText = translations.en.credits2;
+    creditsOnImages2.innerText = translations.en.credits3;
+    creditsOnImages3.innerText = translations.en.credits5;
+    creditsOnImages4.innerText = translations.en.credits3;
+    creditsOnImages5.innerText = translations.en.credits6;
     creditsOnImages6.innerText = translations.en.credits3;
-    creditsOnImages7.innerText = translations.en.credits6;
-    creditsOnImages8.innerText = translations.en.credits2;
-    creditsOnImages9.innerText = translations.en.credits3;
-    creditsOnImages10.innerText = translations.en.credits7;
-    creditsOnImages11.innerText = translations.en.credits2;
-    creditsOnImages12.innerText = translations.en.credits4;
+    creditsOnImages7.innerText = translations.en.credits7;
+    creditsOnImages8.innerText = translations.en.credits4;
     imageCredits1.innerText =  translations.en.credits8;
     imageCredits2.innerText =  translations.en.credits9;
+    creditsOnImages10.innerText = translations.en.credits3;
+    imagePar.innerText = translations.en.credits2;
 
   } else if(language == "de"){
     preSeting.childNodes[0].nodeValue = translations.de.preSettings + " ";
@@ -226,19 +223,17 @@ const setLanguage = (language) => {
     });
     numbers.innerText = translations.de.selectNumber;
     creditsOnImages1.innerText = translations.de.credits1;
-    creditsOnImages2.innerText = translations.de.credits2;
-    creditsOnImages3.innerText = translations.de.credits3;
-    creditsOnImages4.innerText = translations.de.credits5;
-    creditsOnImages5.innerText = translations.de.credits2;
+    creditsOnImages2.innerText = translations.de.credits3;
+    creditsOnImages3.innerText = translations.de.credits5;
+    creditsOnImages4.innerText = translations.de.credits3;
+    creditsOnImages5.innerText = translations.de.credits6;
     creditsOnImages6.innerText = translations.de.credits3;
-    creditsOnImages7.innerText = translations.de.credits6;
-    creditsOnImages8.innerText = translations.de.credits2;
-    creditsOnImages9.innerText = translations.de.credits3;
-    creditsOnImages10.innerText = translations.de.credits7;
-    creditsOnImages11.innerText = translations.de.credits2;
-    creditsOnImages12.innerText = translations.de.credits4;
+    creditsOnImages7.innerText = translations.de.credits7;
+    creditsOnImages8.innerText = translations.de.credits4;
     imageCredits1.innerText =  translations.de.credits8;
     imageCredits2.innerText =  translations.de.credits9;
+    creditsOnImages10.innerText = translations.de.credits3;
+    imagePar.innerText = translations.de.credits2;
 
   } else if(language == "fr"){
     preSeting.childNodes[0].nodeValue = translations.fr.preSettings + " ";
@@ -256,19 +251,17 @@ const setLanguage = (language) => {
     });
     numbers.innerText = translations.fr.selectNumber;
     creditsOnImages1.innerText = translations.fr.credits1;
-    creditsOnImages2.innerText = translations.fr.credits2;
-    creditsOnImages3.innerText = translations.fr.credits3;
-    creditsOnImages4.innerText = translations.fr.credits5;
-    creditsOnImages5.innerText = translations.fr.credits2;
+    creditsOnImages2.innerText = translations.fr.credits3;
+    creditsOnImages3.innerText = translations.fr.credits5;
+    creditsOnImages4.innerText = translations.fr.credits3;
+    creditsOnImages5.innerText = translations.fr.credits6;
     creditsOnImages6.innerText = translations.fr.credits3;
-    creditsOnImages7.innerText = translations.fr.credits6;
-    creditsOnImages8.innerText = translations.fr.credits2;
-    creditsOnImages9.innerText = translations.fr.credits3;
-    creditsOnImages10.innerText = translations.fr.credits7;
-    creditsOnImages11.innerText = translations.fr.credits2;
-    creditsOnImages12.innerText = translations.fr.credits4;
+    creditsOnImages7.innerText = translations.fr.credits7;
+    creditsOnImages8.innerText = translations.fr.credits4;
     imageCredits1.innerText =  translations.fr.credits8;
     imageCredits2.innerText =  translations.fr.credits9;
+    creditsOnImages10.innerText = translations.fr.credits3;
+    imagePar.innerText = translations.fr.credits2;
   }
 
 };    
