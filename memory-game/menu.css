@@ -171,3 +171,16 @@ header {
   right: 20px;
   cursor: pointer;
 }
+
+.credits{
+  display: none;
+}
+
+.creditsButton {
+  margin-top: 10px;
+  width: 70px;
+  background-color: white;
+  border-radius: 2px;
+  border: solid 1px black;
+  cursor: pointer;
+}
