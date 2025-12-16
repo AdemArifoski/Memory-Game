@@ -1,12 +1,6 @@
 import { DatabaseSync } from "node:sqlite";
 
-// Check if running on Render (or production)
-const isProd = process.env.NODE_ENV;
-
-// Use in-memory for local dev, persistent file for Render
-const db = new DatabaseSync(
-  isProd ? "/data/game.db" : ":memory:"
-);
+const db = new DatabaseSync(":memory:")
 
 
 
@@ -51,6 +45,7 @@ db.exec(`
     FOREIGN KEY(player_id) REFERENCES players(id)
   );
 `)
+
 
 
 
