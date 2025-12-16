@@ -216,7 +216,7 @@ if (!token) {
   loginButn.style.display = "block";
 }
 
-
+localstorage.clear();
 
 
 
@@ -428,5 +428,6 @@ const setLanguage = (language) => {
     creditsOnImages10.innerText = translations.fr.credits3;
     imagePar.innerText = translations.fr.credits2;
   }
+
 
 };    
