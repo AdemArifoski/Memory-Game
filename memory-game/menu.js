@@ -216,7 +216,7 @@ if (!token) {
   loginButn.style.display = "block";
 }
 
-localstorage.clear();
+localStorage.clear();
 
 
 
@@ -431,3 +431,4 @@ const setLanguage = (language) => {
 
 
 };    
+
