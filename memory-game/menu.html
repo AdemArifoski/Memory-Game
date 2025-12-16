@@ -19,6 +19,7 @@
     
     <header>
       <div id="preSettings">Settings<span class="settingsIcon">⚙️</span></div>
+      <button type="button" id="loginButton" class="loginButton">Log In</button>
       
       <div id="settingsPanel" class="settingsPanel">
         <h2 id="settings">Settings</h2>
@@ -67,8 +68,7 @@
     </header>
     
     
-
-    <div class="menu">
+    <div id="menu" class="menu">
       <h1>Card Memory Game</h1>
       <p id="selectDifficulty">Select Difficulty</p>
       <button type="button" id="hardButton">Hard</button>
@@ -102,7 +102,7 @@
 
     </div>
 
-    <div>
+    <div id="backImages">
       <video autoplay muted loop class="backgroundVideo">
         <source src="../memory-game-pictures/minions-menu.mp4" type="video/mp4">
       </video>
@@ -113,6 +113,25 @@
         <source src="../memory-game-pictures/anime-menu.mp4" type="video/mp4">
       </video>
     </div>
+
+    <section id="auth">
+      <div>
+          <h2 class="sign-up-text">Login</h2>
+          <p class="createAcc">Create an account!</p>
+      </div>
+
+      <p id="error" style="display: none;"></p>
+      <input id="emailInput" placeholder="Email" />
+      <input id="passwordInput" placeholder="********" type="password" />
+      <button id="authBtn" onclick="authenticate()">
+          Submit
+      </button>
+      <hr />
+      <div class="register-content">
+          <p class="noAcc">Don&apos;t have an account?</p>
+          <button onclick="toggleIsRegister()" id="registerBtn">Sign up</button>
+      </div>
+    </section>
 
 
 

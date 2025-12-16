@@ -1,9 +1,17 @@
-
+import  writeToFirestore from "./writeToFirestore.js";
+import sendToGoogleSheet, { getOrCreatePlayerID} from "./writeToGS.js"
+import { sendToServer, sendToServerLives } from "./writeToDB.js";
 
 //Hides Level 2 to 10 
 for (let i = 2; i <= 10; i++) {
   document.getElementById(`level${i}`).style.display = "none";
 }
+
+let token = localStorage.getItem('token');
+// Object to store timer interval IDs for each level, allowing independent timer control per level
+const levelTimers = {}; // Stores interval IDs for each level
+
+const playerID = getOrCreatePlayerID();
 
 
 
@@ -59,6 +67,8 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
             paused = false;
             startTime = Date.now() - elapsedTime; // Calculate the start time
             intervalId = setInterval(updateTime, 1000); // Start the timer
+            // Store the timer's interval ID for this level so it can be cleared later when switching levels
+            levelTimers[levelNumber] = intervalId;
           }
 
           //Track time when first card of pair is flipped
@@ -156,40 +166,210 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
               }
 
 
-              const highScoreKey = `highScoreMediumLvl${levelNumber}`;
-              // Get the previously saved best time from localStorage
-              const previousHighScore = localStorage.getItem(highScoreKey);
+              function bestTime(mode){
+                const highScoreKey = `highScoreMediumLvl${levelNumber}_${mode}`;
+                // Get the previously saved best time from localStorage
+                const previousHighScore = localStorage.getItem(highScoreKey);
 
-              // Check if there's no previous high score or if the current score is lower than the previous
-              if (!previousHighScore || timeToSeconds(currentScore) < timeToSeconds(previousHighScore)) {
-                // Save the current score as the new high score in localStorage
-                localStorage.setItem(highScoreKey, currentScore); 
+                // Check if there's no previous high score or if the current score is lower than the previous
+                if (!previousHighScore || timeToSeconds(currentScore) < timeToSeconds(previousHighScore)) {
+                  // Save the current score as the new high score in localStorage
+                  localStorage.setItem(highScoreKey, currentScore); 
+                }
+
+                // Retrieve the best time
+                const bestTime = localStorage.getItem(highScoreKey);
+                // Display the best time in High Score
+                document.getElementById(`highScoreValue${levelNumber}`).textContent = bestTime;
+
+               return bestTime; // return value so it can be sent to Google Sheets
               }
 
-              // Retrieve the best time
-              const bestTime = localStorage.getItem(highScoreKey);
-              // Display the best time in High Score
-              document.getElementById(`highScoreValue${levelNumber}`).textContent = bestTime;
 
+              function bestMoves(mode){
+                const bestMovesKey = `bestMovesMediumLvl${levelNumber}_${mode}`;
+                // Get the previously saved best moves from localStorage
+                const previousBestMoves = localStorage.getItem(bestMovesKey);
 
+                // Check if there's no previous best moves or if the current moves are lower than the previous
+                if (!previousBestMoves || parseInt(currentMoves) < parseInt(previousBestMoves)) {
+                  // Save the current moves as the new best moves in localStorage
+                  localStorage.setItem(bestMovesKey, currentMoves); 
+                }
 
-              const bestMovesKey = `bestMovesMediumLvl${levelNumber}`;
-              // Get the previously saved best moves from localStorage
-              const previousBestMoves = localStorage.getItem(bestMovesKey);
+                // Retrieve the best moves
+                const bestMoves = localStorage.getItem(bestMovesKey);
+                // Display the best moves in Best Moves
+                document.getElementById(`bestMovesValue${levelNumber}`).textContent = bestMoves;
 
-              // Check if there's no previous best moves or if the current moves are lower than the previous
-              if (!previousBestMoves || parseInt(currentMoves) < parseInt(previousBestMoves)) {
-                // Save the current moves as the new best moves in localStorage
-                localStorage.setItem(bestMovesKey, currentMoves); 
+                return bestMoves; // return value so it can be sent to Google Sheets
               }
 
-              // Retrieve the best moves
-              const bestMoves = localStorage.getItem(bestMovesKey);
-              // Display the best moves in Best Moves
-              document.getElementById(`bestMovesValue${levelNumber}`).textContent = bestMoves;
+              //If lives mode is displayed
+              if(document.getElementById("classicModeButton").style.display === "none"){
+
+                // Get the current level
+                const currentLevel = levelNumber; 
+                const mode = "lives";  // Mode identifier
+
+                // Create a unique key for this level + mode
+                const keyForLivesModeMedium = `numberOfTimesPlayedMedium_level${currentLevel}_${mode}`;
+
+                // Get current count or 0
+                let numberOfTimesPlayedMedium = parseInt(localStorage.getItem(keyForLivesModeMedium)) || 0;
+
+                // Increment
+                numberOfTimesPlayedMedium++;
+
+                // Save it
+                localStorage.setItem(keyForLivesModeMedium, numberOfTimesPlayedMedium);
+
+                //Get mode-specific best time and best moves
+                const bestTimeResult = bestTime(mode);
+                const bestMovesResult = bestMoves(mode);
+
+                //sent data to google sheets
+                sendToGoogleSheet({
+                  "PlayerID": playerID,
+                  "Difficulty": "Medium",
+                  "Mode": "Lives",
+                  "Level": `Level ${levelNumber} completed`,
+                  "Time": currentScore,
+                  "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedMedium} times`,
+                  "Moves": currentMoves, 
+                  "Points": gamePoints,
+                  "Best Time": bestTimeResult,
+                  "Best Moves":bestMovesResult,
+                  "Total Points": currentPoints
+                });
+
+                function runFirebaseLogic() {
+
+                  writeToFirestore("medium", {
+                    "PlayerID": playerID,
+                    "Mode": "Lives",
+                    "Level": `Level ${levelNumber} completed`,
+                    "Time": currentScore,
+                    "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedMedium} times`,
+                    "Moves": currentMoves, 
+                    "Points": gamePoints,
+                    "Best Time": bestTimeResult,
+                    "Best Moves":bestMovesResult,
+                    "Total Points": currentPoints,
+                    "Date": window.serverTimestamp()
+                  });
+                 
+                }
+
+                //Run immediately if Firebase is already ready
+                if (window.firebaseReady) {
+                  runFirebaseLogic();
+                } else {
+                  // Or wait for the event if not ready yet
+                  window.addEventListener("firebase-ready", runFirebaseLogic);
+                }
+
+                if(token){
+                  sendToServer({
+                    difficulty: "Medium",
+                    mode: "Lives",
+                    level: `Level ${levelNumber} completed`,
+                    time: currentScore,
+                    number_of_times_played: `Level ${levelNumber} played ${numberOfTimesPlayedMedium} times`,
+                    moves: currentMoves,
+                    points: gamePoints,
+                    best_time: bestTimeResult,
+                    best_moves: bestMovesResult,
+                    total_points: currentPoints
+                  });
+                }
+
+                //classic Mode is displayed
+              }else{
+
+                // Get the current level
+                const currentLevel = levelNumber; 
+                const mode = "classic";  // Mode identifier
+
+                // Create a unique key for this level + mode
+                const keyForClassicModeMedium = `numberOfTimesPlayedMedium_level${currentLevel}_${mode}`;
 
 
+                // Get current count or 0
+                let numberOfTimesPlayedClassicMedium = parseInt(localStorage.getItem(keyForClassicModeMedium)) || 0;
 
+                // Increment
+                numberOfTimesPlayedClassicMedium++;
+
+                // Save it
+                localStorage.setItem(keyForClassicModeMedium, numberOfTimesPlayedClassicMedium);
+
+                // Get mode-specific best time and best moves
+                const bestTimeResult = bestTime(mode);
+                const bestMovesResult = bestMoves(mode);
+
+                //sent data to google sheets
+                sendToGoogleSheet({
+                  "PlayerID": playerID,
+                  "Difficulty": "Medium",
+                  "Mode": "Classic",
+                  "Level": `Level ${levelNumber} completed`,
+                  "Time": currentScore,
+                  "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicMedium} times`,
+                  "Moves": currentMoves, 
+                  "Points": gamePoints,
+                  "Best Time": bestTimeResult,
+                  "Best Moves":bestMovesResult,
+                  "Total Points": currentPoints
+                });
+
+                function runFirebaseLogic() {
+
+                  writeToFirestore("medium", {
+                    "PlayerID": playerID,
+                    "Mode": "Classic",
+                    "Level": `Level ${levelNumber} completed`,
+                    "Time": currentScore,
+                    "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicMedium} times`,
+                    "Moves": currentMoves, 
+                    "Points": gamePoints,
+                    "Best Time": bestTimeResult,
+                    "Best Moves":bestMovesResult,
+                    "Total Points": currentPoints,
+                    "Date": window.serverTimestamp()
+                  });
+                  
+                }
+
+                //Run immediately if Firebase is already ready
+                if (window.firebaseReady) {
+                  runFirebaseLogic();
+                } else {
+                  // Or wait for the event if not ready yet
+                  window.addEventListener("firebase-ready", runFirebaseLogic);
+                }
+
+                if(token){
+                    sendToServer( {
+                    difficulty: "Medium",
+                    mode: "Classic",
+                    level: `Level ${levelNumber} completed`,
+                    time: currentScore,
+                    number_of_times_played: `Level ${levelNumber} played ${numberOfTimesPlayedClassicMedium} times`,
+                    moves: currentMoves,
+                    points: gamePoints,
+                    best_time: bestTimeResult,
+                    best_moves: bestMovesResult,
+                    total_points: currentPoints
+                  });
+                }
+
+
+              }
+              
+
+              
+              
 
               // If lives mode is displayed, get lives back when all cards match and be able to go to next level
               if (document.getElementById("classicModeButton").style.display === "none") {
@@ -238,6 +418,91 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
                   setTimeout(() =>{
                     // Stop the timer and reset
                     paused = true;
+
+                    let timeForAllLivesLost = timer.textContent;
+
+                    const mode = "lives";
+
+                    // retain the number of times played and completed the levels
+                    //let playedTimesLives = parseInt(localStorage.getItem(`numberOfTimesPlayed_level${levelNumber}_${mode}`));
+
+                    let currentPoints = parseInt(localStorage.getItem("totalPointsMedium"));
+
+                    // Create a unique key for this level + lives mode for not completed
+                    const keyForLivesModeNotCompletedMedium = `numberOfTimesPlayedNotCompletedMedium_level${levelNumber}_${mode}`;
+
+                    // Get current count or 0
+                    let numberOfTimesPlayedLivesNotCompletedMedium = parseInt(localStorage.getItem(keyForLivesModeNotCompletedMedium)) || 0;
+
+                    // Increment
+                    numberOfTimesPlayedLivesNotCompletedMedium++;
+
+                    // Save it
+                    localStorage.setItem(keyForLivesModeNotCompletedMedium, numberOfTimesPlayedLivesNotCompletedMedium);
+
+                    //combine number of times played and completed + not completed
+                    //let livesModeAllNumberPlayed = playedTimesLives + numberOfTimesPlayedLivesNotCompleted;
+                  
+
+                    const bestTime = localStorage.getItem(`highScoreMediumLvl${levelNumber}_lives`);
+                    const bestMoves = localStorage.getItem(`bestMovesMediumLvl${levelNumber}_lives`);
+                    //sent data to google sheets
+                    sendToGoogleSheet({
+                      "PlayerID": playerID,
+                      "Difficulty": "Medium",
+                      "Mode": "Lives",
+                      "Level": `Level ${levelNumber} not completed`,
+                      "Time": timeForAllLivesLost,
+                      "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedLivesNotCompletedMedium} times`,
+                      "Moves": moves, 
+                      "Points": gamePoints,
+                      "Best Time": bestTime,
+                      "Best Moves": bestMoves,
+                      "Total Points": currentPoints
+                    });
+
+                    function runFirebaseLogic() {
+          
+                      writeToFirestore("medium", {
+                        "PlayerID": playerID,
+                        "Mode": "Lives",
+                        "Level": `Level ${levelNumber} not completed`,
+                        "Time": timeForAllLivesLost,
+                        "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedLivesNotCompletedMedium} times`,
+                        "Moves": moves, 
+                        "Points": gamePoints,
+                        "Best Time": bestTime,
+                        "Best Moves": bestMoves,
+                        "Total Points": currentPoints,
+                        "Date": window.serverTimestamp()
+                      })
+                      
+                    }
+
+                    //Run immediately if Firebase is already ready
+                    if (window.firebaseReady) {
+                      runFirebaseLogic();
+                    } else {
+                      // Or wait for the event if not ready yet
+                      window.addEventListener("firebase-ready", runFirebaseLogic);
+                    }
+
+                    if(token){
+                      sendToServer({
+                        difficulty: "Medium",
+                        mode: "Lives",
+                        level: `Level ${levelNumber} not completed`,
+                        time: timeForAllLivesLost,
+                        number_of_times_played: `Level ${levelNumber} played ${numberOfTimesPlayedLivesNotCompletedMedium} times`,
+                        moves: moves,
+                        points: gamePoints,
+                        best_time: bestTime,
+                        best_moves: bestMoves,
+                        total_points: currentPoints
+                      });
+                    }
+
+
                     clearInterval(intervalId);
                     startTime = 0;
                     elapsedTime = 0;
@@ -300,6 +565,79 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
   });
 
   function resetGame(){
+
+    // Check if in Classic Mode AND if game started AND not all matches found
+    if (document.getElementById("classicModeButton").style.display !== "none") {
+      const mode = "classic";
+      if (!paused && matchCount !== totalPairs) {
+        const currentScore = timer.textContent;
+        const currentLevel = levelNumber;
+        const currentPoints = parseInt(localStorage.getItem("totalPointsMedium")) || 0;
+
+        const keyForClassicModeNotCompletedMedium = `numberOfTimesPlayedNotCompletedMedium_level${currentLevel}_${mode}`;
+        let numberOfTimesPlayedClassicNotCompletedMedium = parseInt(localStorage.getItem(keyForClassicModeNotCompletedMedium)) || 0;
+        numberOfTimesPlayedClassicNotCompletedMedium++;
+        localStorage.setItem(keyForClassicModeNotCompletedMedium, numberOfTimesPlayedClassicNotCompletedMedium);
+
+        const bestTime = localStorage.getItem(`highScoreMediumLvl${levelNumber}_classic`);
+        const bestMoves = localStorage.getItem(`bestMovesMediumLvl${levelNumber}_classic`);
+        sendToGoogleSheet({
+          "PlayerID": playerID,
+          "Difficulty": "Medium",
+          "Mode": "Classic",
+          "Level": `Level ${levelNumber} not completed`,
+          "Time": currentScore,
+          "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicNotCompletedMedium} times`,
+          "Moves": moves, 
+          "Points": gamePoints,
+          "Best Time": bestTime,
+          "Best Moves": bestMoves,
+          "Total Points": currentPoints
+        });
+
+        function runFirebaseLogic() {
+
+          writeToFirestore("medium", {
+            "PlayerID": playerID,
+            "Mode": "Classic",
+            "Level": `Level ${levelNumber} not completed`,
+            "Time": currentScore,
+            "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicNotCompletedMedium} times`,
+            "Moves": moves, 
+            "Points": gamePoints,
+            "Best Time": bestTime,
+            "Best Moves": bestMoves,
+            "Total Points": currentPoints,
+            "Date": window.serverTimestamp()
+          })
+        }
+
+        //Run immediately if Firebase is already ready
+        if (window.firebaseReady) {
+          runFirebaseLogic();
+        } else {
+        // Or wait for the event if not ready yet
+          window.addEventListener("firebase-ready", runFirebaseLogic);
+        }
+
+        if(token){
+          sendToServer({
+            difficulty: "Medium",
+            mode: "Classic",
+            level: `Level ${levelNumber} not completed`,
+            time: currentScore,
+            number_of_times_played: `Level ${levelNumber} played ${numberOfTimesPlayedClassicNotCompletedMedium} times`,
+            moves: moves,
+            points: gamePoints,
+            best_time: bestTime,
+            best_moves: bestMoves,
+            total_points: currentPoints
+          });
+        }
+
+      }
+    }
+
     // Reset flipped card states
     firstFlippedCard = null;
     secondFlippedCard = null;
@@ -390,8 +728,49 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
         localStorage.setItem("totalLivesMedium", lives);
         // Update new total lives in display
         document.getElementById("totalLives").textContent = lives;
+
+        //sent data to google sheets
+        sendToGoogleSheet({
+          "PlayerID": playerID,
+          "Difficulty": "Medium",
+          "Mode": "Lives",
+          "Lives Purchased": "+1",
+          "Total Lives": lives      
+        });
+
+        function runFirebaseLogic() {
+
+          writeToFirestore("medium", {
+            "PlayerID": playerID,
+            "Mode": "Lives",
+            "Lives Purchased": "+1",
+            "Total Lives": lives,
+            "Date": window.serverTimestamp()
+          });
+          
+        }
+
+        //Run immediately if Firebase is already ready
+        if (window.firebaseReady) {
+          runFirebaseLogic();
+        } else {
+        // Or wait for the event if not ready yet
+          window.addEventListener("firebase-ready", runFirebaseLogic);
+        }
+
+        if(token){
+          sendToServerLives({
+            difficulty: "Medium",
+            mode: "Lives",
+            lives_purchased: 1,
+            total_lives: lives 
+          });
+        }
+
       } 
     }
+
+    
   });
 
   fiveExtraLives.addEventListener("click", function () {
@@ -418,8 +797,50 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
         localStorage.setItem("totalLivesMedium", lives);
         // Update new total lives in display
         document.getElementById("totalLives").textContent = lives;
+
+        //sent data to google sheets
+        sendToGoogleSheet({
+          "PlayerID": playerID,
+          "Difficulty": "Medium",
+          "Mode": "Lives",
+          "Lives Purchased": "+5",
+          "Total Lives": lives      
+        });
+
+        function runFirebaseLogic() {
+    
+
+          writeToFirestore("medium", {
+            "PlayerID": playerID,
+            "Mode": "Lives",
+            "Lives Purchased": "+5",
+            "Total Lives": lives, 
+            "Date": window.serverTimestamp()
+          });
+          
+        }
+
+        //Run immediately if Firebase is already ready
+        if (window.firebaseReady) {
+          runFirebaseLogic();
+        } else {
+        // Or wait for the event if not ready yet
+          window.addEventListener("firebase-ready", runFirebaseLogic);
+        }
+
+        if(token){
+          sendToServerLives( {
+            difficulty: "Medium",
+            mode: "Lives",
+            lives_purchased: 5,
+            total_lives: lives 
+          });
+        }
+
       } 
     }
+
+    
   });
 
   
@@ -449,9 +870,11 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
   updatePrice();
 
   moreLives.addEventListener("click", function () {
+
+    const selectedLives = parseInt(moreLivesValue.value);
     // Only allow in lives mode and when the time didn't start
     if (document.getElementById("classicModeButton").style.display === "none" && paused) {
-      const selectedLives = parseInt(moreLivesValue.value);
+      
       if (isNaN(selectedLives)) return;
 
       const difference = selectedLives - baseLives;
@@ -472,8 +895,48 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
         lives += selectedLives;
         localStorage.setItem("totalLivesMedium", lives);
         document.getElementById("totalLives").textContent = lives;
+
+        //sent data to google sheets
+        sendToGoogleSheet({
+          "PlayerID": playerID,
+          "Difficulty": "Medium",
+          "Mode": "Lives",
+          "Lives Purchased": "+" + selectedLives,
+          "Total Lives": lives      
+        });
+
+        function runFirebaseLogic() {
+
+          writeToFirestore("medium", {
+            "PlayerID": playerID,
+            "Mode": "Lives",
+            "Lives Purchased": "+" + selectedLives,
+            "Total Lives": lives, 
+            "Date": window.serverTimestamp()
+          });
+        }
+
+        //Run immediately if Firebase is already ready
+        if (window.firebaseReady) {
+          runFirebaseLogic();
+        } else {
+        // Or wait for the event if not ready yet
+          window.addEventListener("firebase-ready", runFirebaseLogic);
+        }
+
+        if(token){
+          sendToServerLives({
+            difficulty: "Medium",
+            mode: "Lives",
+            lives_purchased: selectedLives,
+            total_lives: lives 
+          });
+        }
+
       } 
     }
+
+    
   });
 
 }
@@ -654,6 +1117,14 @@ function changeBackToLevelOne() {
 
 
 function changeLevel(level) {
+
+  // Stop timer of previous level
+  const prevTimer = levelTimers[level - 1];
+  if (prevTimer) clearInterval(prevTimer);
+
+  // Reset timer display and variables for previous level
+  const prevTimerElement = document.getElementById(`timer${level - 1}`);
+  if (prevTimerElement) prevTimerElement.textContent = "00:00";
  
   // Clears the previous level's numbers
   document.getElementById(`level${level - 1}`).style.display = "none";
@@ -679,6 +1150,16 @@ function changeLevel(level) {
 
 
 function changeBackLevel(level){
+
+  // Stop current level's timer
+  const currTimer = levelTimers[level];
+  if (currTimer) clearInterval(currTimer);
+
+
+  // Reset timer display and variables for current level
+  const currTimerElement = document.getElementById(`timer${level}`);
+  if (currTimerElement) currTimerElement.textContent = "00:00";
+
   // Clears the current level's numbers
   document.getElementById(`level${level}`).style.display = "none";
 
@@ -700,9 +1181,9 @@ function changeBackLevel(level){
 }
 
 
-function changeBackToMenu(){
-  window.location.assign("./menu.html")
-}
+document.getElementById("backButton1").addEventListener("click", () => {
+  window.location.assign("./menu.html");
+});
 
 
 // Show the shop panel when the shop icon is clicked

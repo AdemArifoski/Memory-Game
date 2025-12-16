@@ -184,3 +184,54 @@ header {
   border: solid 1px black;
   cursor: pointer;
 }
+
+.loginButton {
+  width: 70px;
+  background-color: white;
+  border-radius: 2px;
+  border: solid 1px black;
+  cursor: pointer;
+  position: absolute; 
+  top: 5px;          
+  left: 10px;         
+}
+
+
+#auth {
+  display: none; /* hidden by default */
+  position: fixed; /* fixed on screen */
+  top: 50%;        /* center vertically */
+  left: 50%;       /* center horizontally */
+  transform: translate(-50%, -50%); /* perfect centering */
+  max-width: 600px;
+  width: 90%;      /* responsive width */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1000; /* make sure it's on top of everything */
+  background-color: #1a1e32;
+}
+
+.sign-up-text {
+  padding-top: 0;
+  color: white;
+}
+
+.register-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+hr {
+  opacity: 0.4;
+}
+
+.createAcc{
+  font-size: 20px;
+}
+
+.noAcc{
+  font-size: 20px;
+}

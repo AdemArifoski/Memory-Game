@@ -62,6 +62,171 @@ document.getElementById("creditsButton").addEventListener("click", function(){
 });
 
 
+let token = localStorage.getItem('token')
+
+
+let isLoading = false
+let isAuthenticating = false
+let isRegistration = false
+let selectedTab = 'All'
+
+const apiBase = '/'
+
+// elements
+const nav = document.querySelector('nav')
+const header = document.querySelector('header')
+const main = document.querySelector('main')
+const navElements = document.querySelectorAll('.tab-button')
+const authContent = document.getElementById('auth')
+const textError = document.getElementById('error')
+const email = document.getElementById('emailInput')
+const password = document.getElementById('passwordInput')
+const registerBtn = document.getElementById('registerBtn')
+const authBtn = document.getElementById('authBtn')
+const addTodoBtn = document.getElementById('addTodoBtn')
+const loginButn = document.getElementById('loginButton')
+
+loginButn.addEventListener("click", function() {
+  authContent.style.display = "block";
+});
+
+
+async function toggleIsRegister() {
+  isRegistration = !isRegistration
+  registerBtn.innerText = isRegistration ? 'Sign in' : 'Sign up'
+  document.querySelector('#auth > div h2').innerText = isRegistration ? 'Sign Up' : 'Login'
+  document.querySelector('.register-content p').innerText = isRegistration ? 'Already have an account?' : 'Don\'t have an account?'
+  document.querySelector('.register-content button').innerText = isRegistration ? 'Sign in' : 'Sign up'
+}
+
+async function authenticate() {
+  // access email and pass values
+  const emailVal = email.value
+  const passVal = password.value
+
+  // guard clauses... if authenticating, return
+  if (
+      isLoading ||
+      isAuthenticating ||
+      !emailVal ||
+      !passVal ||
+      passVal.length < 6 ||
+      !emailVal.includes('@')
+  ) { return }
+
+  // reset error and set isAuthenticating to true
+  error.style.display = 'none'
+  isAuthenticating = true
+  authBtn.innerText = 'Authenticating...'
+
+  try {
+      let data
+      if (isRegistration) {
+          // register an account
+          const response = await fetch(apiBase + 'auth/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: emailVal, password: passVal })
+          })
+          data = await response.json()
+      } else {
+          // login an account
+          const response = await fetch(apiBase + 'auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: emailVal, password: passVal })
+          })
+          data = await response.json()
+      }
+
+      if (data.token) {
+          token = data.token
+          localStorage.setItem('token', token)
+
+          // authenicating into loading
+          authBtn.innerText = 'Loading...'
+
+          // fetch todos
+          //await fetchTodos()
+
+          // show dashboard
+          showDashboard()
+      } else {
+          throw Error('❌ Failed to authenticate...')
+      }
+
+  } catch (err) {
+      console.log(err.message)
+      error.innerText = err.message
+      error.style.display = 'block'
+  } finally {
+      authBtn.innerText = 'Submit'
+      isAuthenticating = false
+  }
+}
+
+
+function logout() {
+  // wipe states and clear cached token
+}
+
+
+// PAGE RENDERING LOGIC
+async function showDashboard() {
+  // Hide authentication panel
+  document.getElementById('auth').style.display = 'none';
+  loginButn.style.display ="none";
+
+  // Show menu and header
+  document.getElementById('menu').style.display = 'block';
+  document.querySelector('header').style.display = 'flex';
+  
+
+  //await fetchTodos()
+}
+
+// CRUD LOGIC
+/*async function fetchTodos() {
+  isLoading = true
+  const response = await fetch(apiBase + 'todos', {
+    headers: { 'Authorization': token }
+  })
+  const todosData = await response.json()
+  todos = todosData
+  isLoading = false
+  renderTodos()
+}*/
+
+
+// load page and read local storage for key
+
+// default to login screen
+
+// if is authenticated, show menu
+if (token) {
+  async function run() {
+    //await fetchTodos()
+    showDashboard()
+  }
+  run()
+}
+
+
+if (!token) {
+  loginButn.style.display = "block";
+}
+
+
+
+
+
+
+
+
+
+
+
+
 const translations = {
   en: {
     preSettings: "Settings",
