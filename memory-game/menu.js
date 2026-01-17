@@ -175,7 +175,6 @@ function logout() {
 async function showDashboard() {
   // Hide authentication panel
   document.getElementById('auth').style.display = 'none';
-  loginButn.style.display ="none";
 
   // Show menu and header
   document.getElementById('menu').style.display = 'block';
@@ -429,7 +428,4 @@ const setLanguage = (language) => {
     imagePar.innerText = translations.fr.credits2;
   }
 
-
 };    
-
-

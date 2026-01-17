@@ -21,11 +21,10 @@ export function getOrCreatePlayerID() {
 }
 
 export default async function sendToGoogleSheet(data) {
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyzEsrf054wCW8OKgKcQoTxlOs2HC1JlQXHpLruVb8wDS3_FPXlb_zhCYDeSpL_l_rJSQ/exec"
-  const start = performance.now();
+  const scriptURL = "https://script.google.com/macros/s/AKfycbw6e4MqVwMhkGiPu8SKnJJOYvWDNeHuxuSENau3FzWltxfzeaNs1NBrlCukfQJIKrPm/exec"
 
   try {
-    const res = await fetch(scriptURL, {
+    const response = await fetch(scriptURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -33,17 +32,14 @@ export default async function sendToGoogleSheet(data) {
       body: new URLSearchParams(data)
     });
 
-    const result = await res.json();
+    const result = await response.json();
+    console.log("Sheets response:", result);
 
-    const end = performance.now();
-    const duration = end - start;
-    console.log(`Write to Google Sheets took ${duration.toFixed(2)} ms`);
-    console.log("success:", result);
-    return duration; // Return time taken
 
   } catch (err) {
     console.log("error:", err);
-    return null; // So we can filter it out
   }
 }
+
+
 

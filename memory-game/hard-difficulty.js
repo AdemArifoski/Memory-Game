@@ -239,31 +239,24 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
                   "Total Points": currentPoints
                 });
 
-                function runFirebaseLogic() {
+             
 
-                  writeToFirestore("hard", {
-                    "PlayerID": playerID,
-                    "Mode": "Lives",
-                    "Level": `Level ${levelNumber} completed`,
-                    "Time": currentScore,
-                    "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedHard} times`,
-                    "Moves": currentMoves, 
-                    "Points": gamePoints,
-                    "Best Time": bestTimeResult,
-                    "Best Moves":bestMovesResult,
-                    "Total Points": currentPoints,
-                    "Date": window.serverTimestamp()
-                  });
+                writeToFirestore({
+                  "Difficulty" : "Hard",
+                  "Mode": "Lives",
+                  "Level": `Level ${levelNumber} completed`,
+                  "Time": currentScore,
+                  "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedHard} times`,
+                  "Moves": currentMoves, 
+                  "Points": gamePoints,
+                  "Best Time": bestTimeResult,
+                  "Best Moves":bestMovesResult,
+                  "Total Points": currentPoints,
+                });
                   
-                }
+                
 
-                //Run immediately if Firebase is already ready
-                if (window.firebaseReady) {
-                  runFirebaseLogic();
-                } else {
-                  // Or wait for the event if not ready yet
-                  window.addEventListener("firebase-ready", runFirebaseLogic);
-                }
+        
 
                 if(token){
                   sendToServer({
@@ -319,30 +312,23 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
                   "Total Points": currentPoints
                 });
 
-                function runFirebaseLogic() {
+               
 
-                  writeToFirestore("hard", {
-                    "PlayerID": playerID,
-                    "Mode": "Classic",
-                    "Level": `Level ${levelNumber} completed`,
-                    "Time": currentScore,
-                    "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicHard} times`,
-                    "Moves": currentMoves, 
-                    "Points": gamePoints,
-                    "Best Time": bestTimeResult,
-                    "Best Moves":bestMovesResult,
-                    "Total Points": currentPoints,
-                    "Date": window.serverTimestamp()
-                  });
-                }
+                writeToFirestore({
+                  "Difficulty" : "Hard",
+                  "Mode": "Classic",
+                  "Level": `Level ${levelNumber} completed`,
+                  "Time": currentScore,
+                  "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicHard} times`,
+                  "Moves": currentMoves, 
+                  "Points": gamePoints,
+                  "Best Time": bestTimeResult,
+                  "Best Moves":bestMovesResult,
+                  "Total Points": currentPoints,
+                });
+                
 
-                //Run immediately if Firebase is already ready
-                if (window.firebaseReady) {
-                  runFirebaseLogic();
-                } else {
-                  // Or wait for the event if not ready yet
-                  window.addEventListener("firebase-ready", runFirebaseLogic);
-                }
+               
 
                 if(token){
                     sendToServer( {
@@ -454,31 +440,24 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
                     "Total Points": currentPoints
                   });
 
-                  function runFirebaseLogic() {
+                  
                   
 
-                    writeToFirestore("hard", {
-                      "PlayerID": playerID,
-                      "Mode": "Lives",
-                      "Level": `Level ${levelNumber} not completed`,
-                      "Time": timeForAllLivesLost,
-                      "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedLivesNotCompletedHard} times`,
-                      "Moves": moves, 
-                      "Points": gamePoints,
-                      "Best Time": bestTime,
-                      "Best Moves": bestMoves,
-                      "Total Points": currentPoints,
-                      "Date": window.serverTimestamp()
-                    });
-                  }
+                  writeToFirestore({
+                    "Difficulty" : "Hard",
+                    "Mode": "Lives",
+                    "Level": `Level ${levelNumber} not completed`,
+                    "Time": timeForAllLivesLost,
+                    "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedLivesNotCompletedHard} times`,
+                    "Moves": moves, 
+                    "Points": gamePoints,
+                    "Best Time": bestTime,
+                    "Best Moves": bestMoves,
+                    "Total Points": currentPoints,
+                  });
+                  
 
-                  //Run immediately if Firebase is already ready
-                  if (window.firebaseReady) {
-                    runFirebaseLogic();
-                  } else {
-                    // Or wait for the event if not ready yet
-                    window.addEventListener("firebase-ready", runFirebaseLogic);
-                  }
+                 
 
                   if(token){
                     sendToServer({
@@ -629,30 +608,22 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
           "Total Points": currentPoints
         });
 
-        function runFirebaseLogic() {
+    
 
-          writeToFirestore("hard", {
-            "PlayerID": playerID,
-            "Mode": "Classic",
-            "Level": `Level ${levelNumber} not completed`,
-            "Time": currentScore,
-            "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicNotCompletedHard} times`,
-            "Moves": moves, 
-            "Points": gamePoints,
-            "Best Time": bestTime,
-            "Best Moves": bestMoves,
-            "Total Points": currentPoints,
-            "Date": window.serverTimestamp()
-          });
-        }
+        writeToFirestore({
+          "Difficulty" : "Hard",
+          "Mode": "Classic",
+          "Level": `Level ${levelNumber} not completed`,
+          "Time": currentScore,
+          "Number of times played": `Level ${levelNumber} played ${numberOfTimesPlayedClassicNotCompletedHard} times`,
+          "Moves": moves, 
+          "Points": gamePoints,
+          "Best Time": bestTime,
+          "Best Moves": bestMoves,
+          "Total Points": currentPoints,
+        });
+        
 
-        //Run immediately if Firebase is already ready
-        if (window.firebaseReady) {
-          runFirebaseLogic();
-        } else {
-        // Or wait for the event if not ready yet
-          window.addEventListener("firebase-ready", runFirebaseLogic);
-        }
 
         if(token){
           sendToServer({
@@ -771,24 +742,17 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
           "Total Lives": lives      
         });
 
-        function runFirebaseLogic() {
+      
 
-          writeToFirestore("hard", {
-            "PlayerID": playerID,
-            "Mode": "Lives",
-            "Lives Purchased": "+1",
-            "Total Lives": lives, 
-            "Date": window.serverTimestamp()
-          });
-        }
+        writeToFirestore({
+          "Difficulty" : "Hard",
+          "Mode": "Lives",
+          "Lives Purchased": "+1",
+          "Total Lives": lives, 
+        });
+        
 
-        //Run immediately if Firebase is already ready
-        if (window.firebaseReady) {
-          runFirebaseLogic();
-        } else {
-        // Or wait for the event if not ready yet
-          window.addEventListener("firebase-ready", runFirebaseLogic);
-        }
+        
         if(token){
           sendToServerLives({
             difficulty: "Hard",
@@ -836,24 +800,17 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
           "Total Lives": lives      
         });
 
-        function runFirebaseLogic() {
+       
         
-          writeToFirestore("hard", {
-            "PlayerID": playerID,
-            "Mode": "Lives",
-            "Lives Purchased": "+5",
-            "Total Lives": lives,
-            "Date": window.serverTimestamp()
-          });
-        }
+        writeToFirestore({
+          "Difficulty" : "Hard",
+          "Mode": "Lives",
+          "Lives Purchased": "+5",
+          "Total Lives": lives,
+        });
+        
 
-        //Run immediately if Firebase is already ready
-        if (window.firebaseReady) {
-          runFirebaseLogic();
-        } else {
-        // Or wait for the event if not ready yet
-          window.addEventListener("firebase-ready", runFirebaseLogic);
-        }
+        
 
         if(token){
           sendToServerLives( {
@@ -928,24 +885,15 @@ function createGame(containerId, className, resetButton, timerId, modalContainer
           "Total Lives": lives      
         });
 
-        function runFirebaseLogic() {
+        
 
-          writeToFirestore("hard", {
-            "PlayerID": playerID,
-            "Mode": "Lives",
-            "Lives Purchased": "+" + selectedLives,
-            "Total Lives": lives,  
-            "Date": window.serverTimestamp()
-          });
-        }
-
-        //Run immediately if Firebase is already ready
-        if (window.firebaseReady) {
-          runFirebaseLogic();
-        } else {
-        // Or wait for the event if not ready yet
-          window.addEventListener("firebase-ready", runFirebaseLogic);
-        }
+        writeToFirestore({
+          "Difficulty" : "Hard",
+          "Mode": "Lives",
+          "Lives Purchased": "+" + selectedLives,
+          "Total Lives": lives,  
+        });
+        
 
         if(token){
           sendToServerLives({
