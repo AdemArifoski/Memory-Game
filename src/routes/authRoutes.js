@@ -58,7 +58,7 @@ router.post("/register", (req, res) => {
     );
 
     // create a token
-    const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET, { expiresIn: "1m" })
+    const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET, { expiresIn: "15m" })
     res.json({ token })
   } catch (err) {
     console.log(err.message)
@@ -87,7 +87,7 @@ router.post("/login", (req, res) => {
     if (!passwordIsValid) {return res.status(401).send({message: "Invalid password"})}
     console.log(player)
     // then we have a successful authentication
-    const token = jwt.sign({ id: player.id}, process.env.JWT_SECRET, {expiresIn: "1m"})
+    const token = jwt.sign({ id: player.id}, process.env.JWT_SECRET, {expiresIn: "15m"})
     res.json({ token })
   } catch (err) {
     console.log(err.message)
@@ -97,3 +97,4 @@ router.post("/login", (req, res) => {
 
 
 export default router
+
